@@ -1,4 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import type { User } from "@supabase/supabase-js";
 import { learningPaths, LearningPath } from "@/data/learningPaths";
 import { PathCard } from "@/components/PathCard";
 import { ResourceCard } from "@/components/ResourceCard";
@@ -6,11 +9,44 @@ import { PathHeader } from "@/components/PathHeader";
 import { ArchitectureView } from "@/components/ArchitectureView";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, BookOpen, GraduationCap, Layout } from "lucide-react";
+import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut } from "lucide-react";
+import { toast } from "sonner";
 
 const Index = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState<User | null>(null);
   const [selectedPath, setSelectedPath] = useState<LearningPath | null>(null);
   const [activeTab, setActiveTab] = useState<string>("paths");
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!session) {
+        navigate("/auth");
+      } else {
+        setUser(session.user);
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (!session) {
+        navigate("/auth");
+      } else {
+        setUser(session.user);
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    toast.success("Logged out successfully");
+    navigate("/auth");
+  };
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-[var(--gradient-hero)]">
@@ -26,16 +62,26 @@ const Index = () => {
                 SmartLearn Trail
               </h1>
             </div>
-            {selectedPath && (
+            <div className="flex items-center gap-2">
+              {selectedPath && (
+                <Button
+                  variant="outline"
+                  onClick={() => setSelectedPath(null)}
+                  className="border-primary/30 hover:bg-primary/10 transition-all duration-300"
+                >
+                  <ArrowLeft className="mr-2 h-4 w-4" />
+                  All Paths
+                </Button>
+              )}
               <Button
                 variant="outline"
-                onClick={() => setSelectedPath(null)}
+                onClick={handleLogout}
                 className="border-primary/30 hover:bg-primary/10 transition-all duration-300"
               >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                All Paths
+                <LogOut className="mr-2 h-4 w-4" />
+                Logout
               </Button>
-            )}
+            </div>
           </div>
         </div>
       </header>

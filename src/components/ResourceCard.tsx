@@ -36,16 +36,23 @@ const getTypeLabel = (type: Resource['type']) => {
 
 export const ResourceCard = ({ resource }: ResourceCardProps) => {
   const handleDownload = () => {
-    // Simulate download
-    toast.success(`Downloading ${resource.title}...`, {
+    // Create a blob for the download
+    const content = `${resource.title}\n\n${resource.description}\n\nType: ${resource.type}\nSize: ${resource.size}`;
+    const blob = new Blob([content], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    
+    // Create and trigger download
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${resource.title.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    toast.success(`Downloaded ${resource.title}`, {
       description: `File size: ${resource.size}`
     });
-    
-    // In a real app, this would trigger an actual download
-    // const link = document.createElement('a');
-    // link.href = resource.fileUrl;
-    // link.download = resource.title;
-    // link.click();
   };
 
   return (

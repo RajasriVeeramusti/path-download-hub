@@ -23,15 +23,27 @@ export const PathHeader = ({ path }: PathHeaderProps) => {
   const handleDownloadAll = () => {
     toast.success(`Preparing to download entire ${path.title} path...`, {
       description: `Total size: ${totalSize.toFixed(1)} MB • ${path.resources.length} files`,
-      duration: 5000,
     });
     
-    // Simulate bundle download
-    setTimeout(() => {
-      toast.success('Download started!', {
-        description: 'Your learning path bundle is being prepared.',
-      });
-    }, 1500);
+    // Create a text file with all resources
+    const allContent = path.resources.map(resource => 
+      `${resource.title}\nType: ${resource.type}\nSize: ${resource.size}\nDescription: ${resource.description}\n\n---\n\n`
+    ).join('');
+    
+    const blob = new Blob([`${path.title} Learning Path\n\n${path.description}\n\n${'='.repeat(50)}\n\n${allContent}`], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${path.title.replace(/\s+/g, '_')}_Complete_Path.txt`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    
+    toast.success('Download complete!', {
+      description: 'Your learning path bundle has been downloaded.',
+    });
   };
 
   return (
