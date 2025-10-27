@@ -262,5 +262,169 @@ export const learningPaths: LearningPath[] = [
         size: '2.3 MB'
       }
     ]
+  },
+  {
+    id: 'devops',
+    title: 'DevOps & CI/CD',
+    description: 'Master deployment, automation, and infrastructure',
+    icon: '⚙️',
+    color: 'from-yellow-500 to-orange-500',
+    resources: [
+      {
+        id: 'devops-1',
+        title: 'DevOps Fundamentals',
+        description: 'Introduction to DevOps culture and practices',
+        type: 'pdf',
+        fileUrl: '/resources/devops-fundamentals.pdf',
+        size: '3.4 MB'
+      },
+      {
+        id: 'devops-2',
+        title: 'CI/CD Pipeline Tutorial',
+        description: 'Build automated deployment pipelines',
+        type: 'video',
+        fileUrl: '/resources/cicd-tutorial.mp4',
+        size: '410 MB'
+      },
+      {
+        id: 'devops-3',
+        title: 'Jenkins & GitHub Actions',
+        description: 'Automation tools guide',
+        type: 'article',
+        fileUrl: '/resources/automation-tools.pdf',
+        size: '2.1 MB'
+      },
+      {
+        id: 'devops-4',
+        title: 'Infrastructure as Code',
+        description: 'Ansible, Terraform templates',
+        type: 'code',
+        fileUrl: '/resources/iac-templates.zip',
+        size: '1.7 MB'
+      }
+    ]
+  },
+  {
+    id: 'blockchain',
+    title: 'Blockchain & Web3',
+    description: 'Build decentralized applications and smart contracts',
+    icon: '⛓️',
+    color: 'from-cyan-500 to-blue-500',
+    resources: [
+      {
+        id: 'blockchain-1',
+        title: 'Blockchain Basics',
+        description: 'Understanding distributed ledger technology',
+        type: 'pdf',
+        fileUrl: '/resources/blockchain-basics.pdf',
+        size: '3.6 MB'
+      },
+      {
+        id: 'blockchain-2',
+        title: 'Smart Contracts with Solidity',
+        description: 'Ethereum development tutorial',
+        type: 'video',
+        fileUrl: '/resources/solidity-tutorial.mp4',
+        size: '520 MB'
+      },
+      {
+        id: 'blockchain-3',
+        title: 'Web3 Development Guide',
+        description: 'Build dApps with Web3.js',
+        type: 'article',
+        fileUrl: '/resources/web3-guide.pdf',
+        size: '2.4 MB'
+      },
+      {
+        id: 'blockchain-4',
+        title: 'Smart Contract Examples',
+        description: 'Sample contracts and dApps',
+        type: 'code',
+        fileUrl: '/resources/smart-contracts.zip',
+        size: '2.8 MB'
+      }
+    ]
+  },
+  {
+    id: 'ai-ml',
+    title: 'AI & Machine Learning',
+    description: 'Deep learning, neural networks, and AI applications',
+    icon: '🤖',
+    color: 'from-violet-500 to-purple-500',
+    resources: [
+      {
+        id: 'aiml-1',
+        title: 'Deep Learning Foundations',
+        description: 'Neural networks and architectures',
+        type: 'pdf',
+        fileUrl: '/resources/deep-learning.pdf',
+        size: '4.5 MB'
+      },
+      {
+        id: 'aiml-2',
+        title: 'TensorFlow & PyTorch',
+        description: 'Complete ML framework guide',
+        type: 'video',
+        fileUrl: '/resources/ml-frameworks.mp4',
+        size: '580 MB'
+      },
+      {
+        id: 'aiml-3',
+        title: 'Natural Language Processing',
+        description: 'NLP techniques and transformers',
+        type: 'article',
+        fileUrl: '/resources/nlp-guide.pdf',
+        size: '3.3 MB'
+      },
+      {
+        id: 'aiml-4',
+        title: 'ML Model Examples',
+        description: 'Pre-trained models and notebooks',
+        type: 'code',
+        fileUrl: '/resources/ml-models.zip',
+        size: '6.2 MB'
+      }
+    ]
+  },
+  {
+    id: 'game-dev',
+    title: 'Game Development',
+    description: 'Create immersive games with Unity and Unreal Engine',
+    icon: '🎮',
+    color: 'from-pink-500 to-red-500',
+    resources: [
+      {
+        id: 'game-1',
+        title: 'Game Design Principles',
+        description: 'Core concepts of game development',
+        type: 'pdf',
+        fileUrl: '/resources/game-design.pdf',
+        size: '3.7 MB'
+      },
+      {
+        id: 'game-2',
+        title: 'Unity Complete Course',
+        description: '2D and 3D game development',
+        type: 'video',
+        fileUrl: '/resources/unity-course.mp4',
+        size: '620 MB'
+      },
+      {
+        id: 'game-3',
+        title: 'Game Physics & Math',
+        description: 'Mathematics for game developers',
+        type: 'article',
+        fileUrl: '/resources/game-math.pdf',
+        size: '2.6 MB'
+      },
+      {
+        id: 'game-4',
+        title: 'Sample Game Projects',
+        description: 'Complete game source code',
+        type: 'code',
+        fileUrl: '/resources/game-projects.zip',
+        size: '8.4 MB'
+      }
+    ]
   }
 ];
