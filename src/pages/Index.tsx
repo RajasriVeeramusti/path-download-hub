@@ -9,7 +9,7 @@ import { PathHeader } from "@/components/PathHeader";
 import { ArchitectureView } from "@/components/ArchitectureView";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut } from "lucide-react";
+import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut, Download } from "lucide-react";
 import { toast } from "sonner";
 
 const Index = () => {
@@ -147,16 +147,82 @@ const Index = () => {
               <PathHeader path={selectedPath} />
             </div>
 
-            {/* Resources Grid */}
+            {/* Resources by Content Type */}
             <div className="max-w-7xl mx-auto">
-              <h3 className="text-2xl font-bold mb-6 text-center">Available Resources</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {selectedPath.resources.map((resource, index) => (
-                  <div key={resource.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <ResourceCard resource={resource} />
+              <h3 className="text-2xl font-bold mb-8 text-center">Available Resources by Type</h3>
+              
+              {/* Group resources by type */}
+              {(() => {
+                const groupedResources = selectedPath.resources.reduce((acc, resource) => {
+                  if (!acc[resource.type]) {
+                    acc[resource.type] = [];
+                  }
+                  acc[resource.type].push(resource);
+                  return acc;
+                }, {} as Record<string, typeof selectedPath.resources>);
+
+                const typeLabels = {
+                  pdf: 'PDF Documents',
+                  video: 'Video Tutorials',
+                  code: 'Code Files',
+                  article: 'Articles'
+                };
+
+                const typeIcons = {
+                  pdf: '📄',
+                  video: '🎥',
+                  code: '💻',
+                  article: '📝'
+                };
+
+                const handleDownloadType = (type: string, resources: typeof selectedPath.resources) => {
+                  resources.forEach((resource, index) => {
+                    setTimeout(() => {
+                      const content = `${resource.title}\n\n${resource.description}\n\nType: ${resource.type}\nSize: ${resource.size}`;
+                      const blob = new Blob([content], { type: 'text/plain' });
+                      const url = URL.createObjectURL(blob);
+                      
+                      const link = document.createElement('a');
+                      link.href = url;
+                      link.download = `${resource.title.replace(/\s+/g, '_')}.txt`;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      URL.revokeObjectURL(url);
+                    }, index * 100);
+                  });
+                  
+                  toast.success(`Downloading ${resources.length} ${typeLabels[type as keyof typeof typeLabels]}`, {
+                    description: `All ${type} resources are being downloaded`
+                  });
+                };
+
+                return Object.entries(groupedResources).map(([type, resources]) => (
+                  <div key={type} className="mb-12 animate-fade-in">
+                    <div className="flex items-center justify-between mb-6 p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
+                      <div className="flex items-center gap-3">
+                        <span className="text-3xl">{typeIcons[type as keyof typeof typeIcons]}</span>
+                        <h4 className="text-xl font-semibold">{typeLabels[type as keyof typeof typeLabels]}</h4>
+                        <span className="text-sm text-muted-foreground">({resources.length} resources)</span>
+                      </div>
+                      <Button
+                        onClick={() => handleDownloadType(type, resources)}
+                        className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all duration-300"
+                      >
+                        <Download className="mr-2 h-4 w-4" />
+                        Download All {typeLabels[type as keyof typeof typeLabels]}
+                      </Button>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {resources.map((resource, index) => (
+                        <div key={resource.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                          <ResourceCard resource={resource} />
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
+                ));
+              })()}
             </div>
           </>
         )}
