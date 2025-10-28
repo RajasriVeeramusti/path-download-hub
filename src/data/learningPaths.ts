@@ -3,6 +3,7 @@ export interface Resource {
   title: string;
   description: string;
   type: 'pdf' | 'video' | 'code' | 'article';
+  contentType: string;
   fileUrl: string;
   size: string;
 }
@@ -26,35 +27,84 @@ export const learningPaths: LearningPath[] = [
     resources: [
       {
         id: 'web-1',
-        title: 'HTML & CSS Fundamentals',
-        description: 'Complete guide to HTML5 and CSS3',
+        title: 'HTML Structure and Semantics',
+        description: 'Building accessible web pages',
         type: 'pdf',
-        fileUrl: '/resources/html-css-guide.pdf',
+        contentType: 'HTML & CSS Fundamentals',
+        fileUrl: '/resources/html-structure.pdf',
         size: '2.5 MB'
       },
       {
         id: 'web-2',
-        title: 'JavaScript Essentials',
-        description: 'Modern JavaScript ES6+ features',
+        title: 'CSS Layouts and Flexbox',
+        description: 'Modern layout techniques',
         type: 'pdf',
-        fileUrl: '/resources/javascript-essentials.pdf',
-        size: '3.1 MB'
+        contentType: 'HTML & CSS Fundamentals',
+        fileUrl: '/resources/css-layouts.pdf',
+        size: '3.2 MB'
       },
       {
         id: 'web-3',
-        title: 'React Masterclass',
-        description: 'Build modern web apps with React',
-        type: 'video',
-        fileUrl: '/resources/react-masterclass.mp4',
-        size: '450 MB'
+        title: 'Responsive Design',
+        description: 'Media queries and mobile-first approach',
+        type: 'article',
+        contentType: 'HTML & CSS Fundamentals',
+        fileUrl: '/resources/responsive-design.pdf',
+        size: '2.1 MB'
       },
       {
         id: 'web-4',
-        title: 'Responsive Design Patterns',
-        description: 'Code samples for responsive layouts',
+        title: 'JavaScript Variables and Data Types',
+        description: 'Understanding primitive and reference types',
+        type: 'pdf',
+        contentType: 'JavaScript Essentials',
+        fileUrl: '/resources/js-variables.pdf',
+        size: '2.8 MB'
+      },
+      {
+        id: 'web-5',
+        title: 'Functions and Scope',
+        description: 'Arrow functions and closures',
+        type: 'video',
+        contentType: 'JavaScript Essentials',
+        fileUrl: '/resources/js-functions.mp4',
+        size: '350 MB'
+      },
+      {
+        id: 'web-6',
+        title: 'DOM Manipulation',
+        description: 'Interacting with web pages dynamically',
         type: 'code',
-        fileUrl: '/resources/responsive-patterns.zip',
-        size: '1.2 MB'
+        contentType: 'JavaScript Essentials',
+        fileUrl: '/resources/dom-manipulation.zip',
+        size: '1.4 MB'
+      },
+      {
+        id: 'web-7',
+        title: 'React Components',
+        description: 'Building reusable UI components',
+        type: 'video',
+        contentType: 'Modern Frameworks',
+        fileUrl: '/resources/react-components.mp4',
+        size: '420 MB'
+      },
+      {
+        id: 'web-8',
+        title: 'React Hooks',
+        description: 'State management with hooks',
+        type: 'article',
+        contentType: 'Modern Frameworks',
+        fileUrl: '/resources/react-hooks.pdf',
+        size: '3.5 MB'
+      },
+      {
+        id: 'web-9',
+        title: 'Vue.js Basics',
+        description: 'Getting started with Vue framework',
+        type: 'video',
+        contentType: 'Modern Frameworks',
+        fileUrl: '/resources/vue-basics.mp4',
+        size: '380 MB'
       }
     ]
   },
@@ -67,35 +117,111 @@ export const learningPaths: LearningPath[] = [
     resources: [
       {
         id: 'ds-1',
-        title: 'Python for Data Science',
-        description: 'Comprehensive Python programming guide',
+        title: 'Python Basics',
+        description: 'Variables, data types, and control structures',
         type: 'pdf',
-        fileUrl: '/resources/python-data-science.pdf',
+        contentType: 'Python for Data Science',
+        fileUrl: '/resources/python-basics.pdf',
         size: '4.2 MB'
       },
       {
         id: 'ds-2',
-        title: 'Pandas & NumPy Tutorial',
-        description: 'Data manipulation with Python libraries',
-        type: 'article',
-        fileUrl: '/resources/pandas-numpy.pdf',
-        size: '1.8 MB'
+        title: 'Python Functions and Modules',
+        description: 'Creating reusable code components',
+        type: 'pdf',
+        contentType: 'Python for Data Science',
+        fileUrl: '/resources/python-functions.pdf',
+        size: '3.1 MB'
       },
       {
         id: 'ds-3',
-        title: 'Machine Learning Basics',
-        description: 'Introduction to ML algorithms',
-        type: 'video',
-        fileUrl: '/resources/ml-basics.mp4',
-        size: '380 MB'
+        title: 'Object-Oriented Programming',
+        description: 'Classes, inheritance, and polymorphism',
+        type: 'article',
+        contentType: 'Python for Data Science',
+        fileUrl: '/resources/python-oop.pdf',
+        size: '2.8 MB'
       },
       {
         id: 'ds-4',
-        title: 'Data Visualization Projects',
-        description: 'Sample projects and code',
+        title: 'NumPy Fundamentals',
+        description: 'Array operations and mathematical computing',
+        type: 'video',
+        contentType: 'Data Analysis Libraries',
+        fileUrl: '/resources/numpy-fundamentals.mp4',
+        size: '320 MB'
+      },
+      {
+        id: 'ds-5',
+        title: 'Pandas DataFrames',
+        description: 'Data manipulation and analysis',
+        type: 'video',
+        contentType: 'Data Analysis Libraries',
+        fileUrl: '/resources/pandas-dataframes.mp4',
+        size: '380 MB'
+      },
+      {
+        id: 'ds-6',
+        title: 'Data Cleaning Techniques',
+        description: 'Handling missing data and outliers',
+        type: 'article',
+        contentType: 'Data Analysis Libraries',
+        fileUrl: '/resources/data-cleaning.pdf',
+        size: '2.3 MB'
+      },
+      {
+        id: 'ds-7',
+        title: 'Matplotlib Visualization',
+        description: 'Creating plots and charts',
         type: 'code',
-        fileUrl: '/resources/data-viz-projects.zip',
+        contentType: 'Data Visualization',
+        fileUrl: '/resources/matplotlib-viz.zip',
+        size: '1.5 MB'
+      },
+      {
+        id: 'ds-8',
+        title: 'Seaborn Advanced Plots',
+        description: 'Statistical data visualization',
+        type: 'code',
+        contentType: 'Data Visualization',
+        fileUrl: '/resources/seaborn-plots.zip',
         size: '2.1 MB'
+      },
+      {
+        id: 'ds-9',
+        title: 'Interactive Dashboards',
+        description: 'Building with Plotly and Dash',
+        type: 'article',
+        contentType: 'Data Visualization',
+        fileUrl: '/resources/interactive-dashboards.pdf',
+        size: '3.4 MB'
+      },
+      {
+        id: 'ds-10',
+        title: 'Supervised Learning Algorithms',
+        description: 'Regression and classification',
+        type: 'pdf',
+        contentType: 'Machine Learning',
+        fileUrl: '/resources/supervised-learning.pdf',
+        size: '4.6 MB'
+      },
+      {
+        id: 'ds-11',
+        title: 'Unsupervised Learning',
+        description: 'Clustering and dimensionality reduction',
+        type: 'pdf',
+        contentType: 'Machine Learning',
+        fileUrl: '/resources/unsupervised-learning.pdf',
+        size: '3.9 MB'
+      },
+      {
+        id: 'ds-12',
+        title: 'Model Evaluation',
+        description: 'Metrics and cross-validation techniques',
+        type: 'video',
+        contentType: 'Machine Learning',
+        fileUrl: '/resources/model-evaluation.mp4',
+        size: '410 MB'
       }
     ]
   },
@@ -111,6 +237,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Design Principles Guide',
         description: 'Fundamental principles of good design',
         type: 'pdf',
+        contentType: 'Design Fundamentals',
         fileUrl: '/resources/design-principles.pdf',
         size: '3.5 MB'
       },
@@ -119,6 +246,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Figma Masterclass',
         description: 'Complete Figma design tutorial',
         type: 'video',
+        contentType: 'Design Tools',
         fileUrl: '/resources/figma-masterclass.mp4',
         size: '520 MB'
       },
@@ -127,6 +255,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Color Theory Handbook',
         description: 'Master color in design',
         type: 'pdf',
+        contentType: 'Design Fundamentals',
         fileUrl: '/resources/color-theory.pdf',
         size: '2.8 MB'
       },
@@ -135,6 +264,7 @@ export const learningPaths: LearningPath[] = [
         title: 'UI Component Library',
         description: 'Reusable design components',
         type: 'code',
+        contentType: 'Design Systems',
         fileUrl: '/resources/ui-components.zip',
         size: '1.5 MB'
       }
@@ -152,6 +282,7 @@ export const learningPaths: LearningPath[] = [
         title: 'React Native Guide',
         description: 'Cross-platform mobile development',
         type: 'pdf',
+        contentType: 'Cross-Platform Development',
         fileUrl: '/resources/react-native-guide.pdf',
         size: '3.3 MB'
       },
@@ -160,6 +291,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Flutter Basics',
         description: 'Getting started with Flutter',
         type: 'video',
+        contentType: 'Cross-Platform Development',
         fileUrl: '/resources/flutter-basics.mp4',
         size: '420 MB'
       },
@@ -168,6 +300,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Mobile UI Patterns',
         description: 'Common mobile interface patterns',
         type: 'article',
+        contentType: 'Mobile Design',
         fileUrl: '/resources/mobile-ui-patterns.pdf',
         size: '2.2 MB'
       },
@@ -176,6 +309,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Sample Mobile Apps',
         description: 'Complete app source code',
         type: 'code',
+        contentType: 'Mobile Projects',
         fileUrl: '/resources/sample-apps.zip',
         size: '5.8 MB'
       }
@@ -193,6 +327,7 @@ export const learningPaths: LearningPath[] = [
         title: 'AWS Fundamentals',
         description: 'Introduction to Amazon Web Services',
         type: 'pdf',
+        contentType: 'Cloud Platforms',
         fileUrl: '/resources/aws-fundamentals.pdf',
         size: '3.8 MB'
       },
@@ -201,6 +336,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Docker & Kubernetes',
         description: 'Container orchestration guide',
         type: 'video',
+        contentType: 'Containerization',
         fileUrl: '/resources/docker-kubernetes.mp4',
         size: '480 MB'
       },
@@ -209,6 +345,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Serverless Architecture',
         description: 'Build scalable serverless apps',
         type: 'article',
+        contentType: 'Cloud Architecture',
         fileUrl: '/resources/serverless-guide.pdf',
         size: '2.5 MB'
       },
@@ -217,6 +354,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Cloud Infrastructure Code',
         description: 'Terraform and CloudFormation templates',
         type: 'code',
+        contentType: 'Infrastructure as Code',
         fileUrl: '/resources/infrastructure-code.zip',
         size: '1.9 MB'
       }
@@ -234,6 +372,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Security Fundamentals',
         description: 'Core concepts in cybersecurity',
         type: 'pdf',
+        contentType: 'Security Basics',
         fileUrl: '/resources/security-fundamentals.pdf',
         size: '3.2 MB'
       },
@@ -242,6 +381,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Ethical Hacking Course',
         description: 'Penetration testing techniques',
         type: 'video',
+        contentType: 'Penetration Testing',
         fileUrl: '/resources/ethical-hacking.mp4',
         size: '550 MB'
       },
@@ -250,6 +390,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Network Security Guide',
         description: 'Protect your network infrastructure',
         type: 'pdf',
+        contentType: 'Network Security',
         fileUrl: '/resources/network-security.pdf',
         size: '2.9 MB'
       },
@@ -258,6 +399,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Security Tools & Scripts',
         description: 'Practical security tools',
         type: 'code',
+        contentType: 'Security Tools',
         fileUrl: '/resources/security-tools.zip',
         size: '2.3 MB'
       }
@@ -275,6 +417,7 @@ export const learningPaths: LearningPath[] = [
         title: 'DevOps Fundamentals',
         description: 'Introduction to DevOps culture and practices',
         type: 'pdf',
+        contentType: 'DevOps Practices',
         fileUrl: '/resources/devops-fundamentals.pdf',
         size: '3.4 MB'
       },
@@ -283,6 +426,7 @@ export const learningPaths: LearningPath[] = [
         title: 'CI/CD Pipeline Tutorial',
         description: 'Build automated deployment pipelines',
         type: 'video',
+        contentType: 'CI/CD Pipelines',
         fileUrl: '/resources/cicd-tutorial.mp4',
         size: '410 MB'
       },
@@ -291,6 +435,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Jenkins & GitHub Actions',
         description: 'Automation tools guide',
         type: 'article',
+        contentType: 'Automation Tools',
         fileUrl: '/resources/automation-tools.pdf',
         size: '2.1 MB'
       },
@@ -299,6 +444,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Infrastructure as Code',
         description: 'Ansible, Terraform templates',
         type: 'code',
+        contentType: 'Infrastructure Automation',
         fileUrl: '/resources/iac-templates.zip',
         size: '1.7 MB'
       }
@@ -316,6 +462,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Blockchain Basics',
         description: 'Understanding distributed ledger technology',
         type: 'pdf',
+        contentType: 'Blockchain Fundamentals',
         fileUrl: '/resources/blockchain-basics.pdf',
         size: '3.6 MB'
       },
@@ -324,6 +471,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Smart Contracts with Solidity',
         description: 'Ethereum development tutorial',
         type: 'video',
+        contentType: 'Smart Contracts',
         fileUrl: '/resources/solidity-tutorial.mp4',
         size: '520 MB'
       },
@@ -332,6 +480,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Web3 Development Guide',
         description: 'Build dApps with Web3.js',
         type: 'article',
+        contentType: 'Web3 Development',
         fileUrl: '/resources/web3-guide.pdf',
         size: '2.4 MB'
       },
@@ -340,6 +489,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Smart Contract Examples',
         description: 'Sample contracts and dApps',
         type: 'code',
+        contentType: 'dApp Projects',
         fileUrl: '/resources/smart-contracts.zip',
         size: '2.8 MB'
       }
@@ -357,6 +507,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Deep Learning Foundations',
         description: 'Neural networks and architectures',
         type: 'pdf',
+        contentType: 'Deep Learning',
         fileUrl: '/resources/deep-learning.pdf',
         size: '4.5 MB'
       },
@@ -365,6 +516,7 @@ export const learningPaths: LearningPath[] = [
         title: 'TensorFlow & PyTorch',
         description: 'Complete ML framework guide',
         type: 'video',
+        contentType: 'ML Frameworks',
         fileUrl: '/resources/ml-frameworks.mp4',
         size: '580 MB'
       },
@@ -373,6 +525,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Natural Language Processing',
         description: 'NLP techniques and transformers',
         type: 'article',
+        contentType: 'Natural Language Processing',
         fileUrl: '/resources/nlp-guide.pdf',
         size: '3.3 MB'
       },
@@ -381,6 +534,7 @@ export const learningPaths: LearningPath[] = [
         title: 'ML Model Examples',
         description: 'Pre-trained models and notebooks',
         type: 'code',
+        contentType: 'ML Projects',
         fileUrl: '/resources/ml-models.zip',
         size: '6.2 MB'
       }
@@ -398,6 +552,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Game Design Principles',
         description: 'Core concepts of game development',
         type: 'pdf',
+        contentType: 'Game Design',
         fileUrl: '/resources/game-design.pdf',
         size: '3.7 MB'
       },
@@ -406,6 +561,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Unity Complete Course',
         description: '2D and 3D game development',
         type: 'video',
+        contentType: 'Game Engines',
         fileUrl: '/resources/unity-course.mp4',
         size: '620 MB'
       },
@@ -414,6 +570,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Game Physics & Math',
         description: 'Mathematics for game developers',
         type: 'article',
+        contentType: 'Game Mathematics',
         fileUrl: '/resources/game-math.pdf',
         size: '2.6 MB'
       },
@@ -422,6 +579,7 @@ export const learningPaths: LearningPath[] = [
         title: 'Sample Game Projects',
         description: 'Complete game source code',
         type: 'code',
+        contentType: 'Game Projects',
         fileUrl: '/resources/game-projects.zip',
         size: '8.4 MB'
       }

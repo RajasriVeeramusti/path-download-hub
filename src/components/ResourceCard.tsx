@@ -37,7 +37,7 @@ const getTypeLabel = (type: Resource['type']) => {
 export const ResourceCard = ({ resource }: ResourceCardProps) => {
   const handleDownload = () => {
     // Create a blob for the download
-    const content = `${resource.title}\n\n${resource.description}\n\nType: ${resource.type}\nSize: ${resource.size}`;
+    const content = `${resource.title}\n\n${resource.description}`;
     const blob = new Blob([content], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     
@@ -50,9 +50,7 @@ export const ResourceCard = ({ resource }: ResourceCardProps) => {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
     
-    toast.success(`Downloaded ${resource.title}`, {
-      description: `File size: ${resource.size}`
-    });
+    toast.success(`Downloaded ${resource.title}`);
   };
 
   return (
