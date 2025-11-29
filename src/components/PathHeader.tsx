@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { LearningPath } from "@/data/learningPaths";
 import { Download, FileText, Video, Code, FileCode } from "lucide-react";
 import { toast } from "sonner";
+import jsPDF from "jspdf";
 
 interface PathHeaderProps {
   path: LearningPath;
@@ -21,45 +22,73 @@ export const PathHeader = ({ path }: PathHeaderProps) => {
   }, {} as Record<string, number>);
 
   const handleDownloadAll = () => {
-    // Group resources by contentType
-    const groupedByContentType = path.resources.reduce((acc, resource) => {
-      if (!acc[resource.contentType]) {
-        acc[resource.contentType] = [];
-      }
-      acc[resource.contentType].push(resource);
-      return acc;
-    }, {} as Record<string, typeof path.resources>);
+    const pdf = new jsPDF();
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const margin = 20;
+    const maxWidth = pageWidth - 2 * margin;
+    let yPosition = margin;
 
-    // Create a single file containing all content types and their topics
-    let content = `${path.title}\n${'='.repeat(path.title.length)}\n\n${path.description}\n\n`;
-    content += `Total Content Types: ${Object.keys(groupedByContentType).length}\n`;
-    content += `Total Topics: ${path.resources.length}\n\n`;
-    content += '='.repeat(50) + '\n\n';
-    
-    Object.entries(groupedByContentType).forEach(([contentType, resources]) => {
-      content += `${contentType}\n`;
-      content += `${'-'.repeat(contentType.length)}\n\n`;
-      
-      resources.forEach((resource, index) => {
-        content += `  Topic ${index + 1}: ${resource.title}\n`;
-        content += `  ${resource.description}\n\n`;
+    // Title
+    pdf.setFontSize(24);
+    pdf.setFont("helvetica", "bold");
+    const titleLines = pdf.splitTextToSize(path.title, maxWidth);
+    titleLines.forEach((line: string) => {
+      pdf.text(line, margin, yPosition);
+      yPosition += 10;
+    });
+    yPosition += 5;
+
+    // Description
+    pdf.setFontSize(12);
+    pdf.setFont("helvetica", "normal");
+    const descLines = pdf.splitTextToSize(path.description, maxWidth);
+    descLines.forEach((line: string) => {
+      if (yPosition > pageHeight - margin) {
+        pdf.addPage();
+        yPosition = margin;
+      }
+      pdf.text(line, margin, yPosition);
+      yPosition += 7;
+    });
+    yPosition += 10;
+
+    // Resources with clickable links
+    path.resources.forEach((resource, index) => {
+      if (yPosition > pageHeight - margin - 30) {
+        pdf.addPage();
+        yPosition = margin;
+      }
+
+      // Resource number and title
+      pdf.setFontSize(14);
+      pdf.setFont("helvetica", "bold");
+      const titleText = `${index + 1}. ${resource.title}`;
+      const titleTextLines = pdf.splitTextToSize(titleText, maxWidth);
+      titleTextLines.forEach((line: string) => {
+        pdf.text(line, margin, yPosition);
+        yPosition += 8;
       });
-      
-      content += '\n';
+
+      // Description
+      pdf.setFontSize(11);
+      pdf.setFont("helvetica", "normal");
+      pdf.text("Description: ", margin, yPosition);
+      const descText = pdf.splitTextToSize(resource.description, maxWidth - 30);
+      descText.forEach((line: string, i: number) => {
+        pdf.text(line, margin + (i === 0 ? 30 : 0), yPosition);
+        yPosition += 6;
+      });
+
+      // Link (clickable)
+      pdf.setTextColor(0, 0, 255);
+      pdf.textWithLink("Link: " + resource.fileUrl, margin, yPosition, { url: resource.fileUrl });
+      pdf.setTextColor(0, 0, 0);
+      yPosition += 10;
     });
 
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${path.title.replace(/\s+/g, '_')}_Complete.txt`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-    
-    toast.success(`Downloaded complete ${path.title} learning path`);
+    pdf.save(`${path.title.replace(/\s+/g, '_')}_Learning_Path.pdf`);
+    toast.success(`Downloaded ${path.title} learning path as PDF`);
   };
 
   return (
