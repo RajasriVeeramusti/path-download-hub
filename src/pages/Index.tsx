@@ -17,6 +17,7 @@ const Index = () => {
   const [user, setUser] = useState<User | null>(null);
   const [selectedPath, setSelectedPath] = useState<LearningPath | null>(null);
   const [activeTab, setActiveTab] = useState<string>("paths");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -24,6 +25,7 @@ const Index = () => {
         navigate("/auth");
       } else {
         setUser(session.user);
+        setTimeout(() => setIsLoading(false), 300);
       }
     });
 
@@ -32,6 +34,7 @@ const Index = () => {
         navigate("/auth");
       } else {
         setUser(session.user);
+        setIsLoading(false);
       }
     });
 
@@ -44,8 +47,17 @@ const Index = () => {
     navigate("/auth");
   };
 
-  if (!user) {
-    return null;
+  if (!user || isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background via-muted/30 to-background flex items-center justify-center">
+        <div className="text-center animate-fade-in">
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-primary to-secondary shadow-lg animate-pulse-glow mb-4 inline-block">
+            <GraduationCap className="h-12 w-12 text-primary-foreground" />
+          </div>
+          <p className="text-muted-foreground animate-pulse">Loading your learning paths...</p>
+        </div>
+      </div>
+    );
   }
 
   return (
