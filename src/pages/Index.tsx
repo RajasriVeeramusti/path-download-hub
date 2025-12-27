@@ -7,9 +7,10 @@ import { PathCard } from "@/components/PathCard";
 import { ResourceCard } from "@/components/ResourceCard";
 import { PathHeader } from "@/components/PathHeader";
 import { ArchitectureView } from "@/components/ArchitectureView";
+import { DomainGuidance } from "@/components/DomainGuidance";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut, Download } from "lucide-react";
+import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut, Download, Compass, FolderOpen } from "lucide-react";
 import { toast } from "sonner";
 
 const Index = () => {
@@ -161,74 +162,102 @@ const Index = () => {
               <PathHeader path={selectedPath} />
             </div>
 
-            {/* Resources by Content Type */}
-            <div className="max-w-7xl mx-auto">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6 lg:mb-8 text-center">Available Resources by Content Type</h3>
-              
-              {/* Group resources by contentType */}
-              {(() => {
-                const groupedResources = selectedPath.resources.reduce((acc, resource) => {
-                  if (!acc[resource.contentType]) {
-                    acc[resource.contentType] = [];
-                  }
-                  acc[resource.contentType].push(resource);
-                  return acc;
-                }, {} as Record<string, typeof selectedPath.resources>);
+            {/* Path Content Tabs */}
+            <Tabs defaultValue="guidance" className="w-full">
+              <div className="flex justify-center mb-6 sm:mb-8">
+                <TabsList className="bg-card/80 backdrop-blur-sm border border-border/50 shadow-md p-1">
+                  <TabsTrigger 
+                    value="guidance" 
+                    className="text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground"
+                  >
+                    <Compass className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                    Learning Guide
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="resources"
+                    className="text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground"
+                  >
+                    <FolderOpen className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
+                    Resources
+                  </TabsTrigger>
+                </TabsList>
+              </div>
 
-                const handleDownloadContentType = (contentType: string, resources: typeof selectedPath.resources) => {
-                  let content = `${contentType}\n${'='.repeat(contentType.length)}\n\n`;
-                  
-                  resources.forEach((resource, index) => {
-                    content += `Topic ${index + 1}: ${resource.title}\n`;
-                    content += `${'-'.repeat(resource.title.length + 9)}\n`;
-                    content += `Description: ${resource.description}\n`;
-                    content += `Link: ${resource.fileUrl}\n\n`;
-                  });
-                  
-                  const blob = new Blob([content], { type: 'text/plain' });
-                  const url = URL.createObjectURL(blob);
-                  
-                  const link = document.createElement('a');
-                  link.href = url;
-                  link.download = `${contentType.replace(/\s+/g, '_')}.txt`;
-                  document.body.appendChild(link);
-                  link.click();
-                  document.body.removeChild(link);
-                  URL.revokeObjectURL(url);
-                  
-                  toast.success(`Downloaded ${contentType}`);
-                };
+              <TabsContent value="guidance" className="mt-0">
+                <DomainGuidance path={selectedPath} />
+              </TabsContent>
 
-                return Object.entries(groupedResources).map(([contentType, resources]) => (
-                  <div key={contentType} className="mb-6 sm:mb-8 lg:mb-12 animate-fade-in">
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <span className="text-2xl sm:text-3xl">📚</span>
-                        <div>
-                          <h4 className="text-base sm:text-lg lg:text-xl font-semibold">{contentType}</h4>
-                          <span className="text-xs sm:text-sm text-muted-foreground">{resources.length} topics</span>
+              <TabsContent value="resources" className="mt-0">
+                {/* Resources by Content Type */}
+                <div className="max-w-7xl mx-auto">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6 lg:mb-8 text-center">Available Resources by Content Type</h3>
+                  
+                  {/* Group resources by contentType */}
+                  {(() => {
+                    const groupedResources = selectedPath.resources.reduce((acc, resource) => {
+                      if (!acc[resource.contentType]) {
+                        acc[resource.contentType] = [];
+                      }
+                      acc[resource.contentType].push(resource);
+                      return acc;
+                    }, {} as Record<string, typeof selectedPath.resources>);
+
+                    const handleDownloadContentType = (contentType: string, resources: typeof selectedPath.resources) => {
+                      let content = `${contentType}\n${'='.repeat(contentType.length)}\n\n`;
+                      
+                      resources.forEach((resource, index) => {
+                        content += `Topic ${index + 1}: ${resource.title}\n`;
+                        content += `${'-'.repeat(resource.title.length + 9)}\n`;
+                        content += `Description: ${resource.description}\n`;
+                        content += `Link: ${resource.fileUrl}\n\n`;
+                      });
+                      
+                      const blob = new Blob([content], { type: 'text/plain' });
+                      const url = URL.createObjectURL(blob);
+                      
+                      const link = document.createElement('a');
+                      link.href = url;
+                      link.download = `${contentType.replace(/\s+/g, '_')}.txt`;
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      URL.revokeObjectURL(url);
+                      
+                      toast.success(`Downloaded ${contentType}`);
+                    };
+
+                    return Object.entries(groupedResources).map(([contentType, resources]) => (
+                      <div key={contentType} className="mb-6 sm:mb-8 lg:mb-12 animate-fade-in">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg bg-card/50 backdrop-blur-sm border border-border/50">
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            <span className="text-2xl sm:text-3xl">📚</span>
+                            <div>
+                              <h4 className="text-base sm:text-lg lg:text-xl font-semibold">{contentType}</h4>
+                              <span className="text-xs sm:text-sm text-muted-foreground">{resources.length} topics</span>
+                            </div>
+                          </div>
+                          <Button
+                            size="sm"
+                            onClick={() => handleDownloadContentType(contentType, resources)}
+                            className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-xs sm:text-sm"
+                          >
+                            <Download className="mr-1.5 h-3 w-3 sm:h-4 sm:w-4" />
+                            Download {contentType}
+                          </Button>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+                          {resources.map((resource, index) => (
+                            <div key={resource.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.05}s` }}>
+                              <ResourceCard resource={resource} />
+                            </div>
+                          ))}
                         </div>
                       </div>
-                      <Button
-                        size="sm"
-                        onClick={() => handleDownloadContentType(contentType, resources)}
-                        className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-xs sm:text-sm"
-                      >
-                        <Download className="mr-1.5 h-3 w-3 sm:h-4 sm:w-4" />
-                        Download {contentType}
-                      </Button>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
-                      {resources.map((resource, index) => (
-                        <div key={resource.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.05}s` }}>
-                          <ResourceCard resource={resource} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ));
-              })()}
-            </div>
+                    ));
+                  })()}
+                </div>
+              </TabsContent>
+            </Tabs>
           </>
         )}
       </main>
