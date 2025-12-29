@@ -1,13 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Resource } from "@/data/learningPaths";
-import { FileText, Video, Code, FileCode, ExternalLink, Play, BookOpen, Terminal } from "lucide-react";
+import { FileText, Play, BookOpen, Terminal, ExternalLink, ArrowUpRight } from "lucide-react";
 
 interface ResourceCardProps {
   resource: Resource;
 }
 
 const getIcon = (type: Resource['type']) => {
-  const iconClass = "h-4 w-4 sm:h-5 sm:w-5";
+  const iconClass = "h-5 w-5 sm:h-6 sm:w-6";
   switch (type) {
     case 'pdf':
       return <FileText className={iconClass} />;
@@ -37,31 +37,39 @@ const getTypeStyles = (type: Resource['type']) => {
   switch (type) {
     case 'pdf':
       return {
-        bg: 'bg-red-500/10 group-hover:bg-red-500/20',
-        text: 'text-red-600 dark:text-red-400',
-        border: 'border-red-500/20',
-        glow: 'group-hover:shadow-red-500/20',
+        bg: 'bg-rose-500/10 group-hover:bg-rose-500/20',
+        text: 'text-rose-500 dark:text-rose-400',
+        border: 'border-rose-500/30',
+        glow: 'group-hover:shadow-rose-500/20',
+        gradient: 'from-rose-500 to-orange-500',
+        ring: 'ring-rose-500/20',
       };
     case 'video':
       return {
-        bg: 'bg-purple-500/10 group-hover:bg-purple-500/20',
-        text: 'text-purple-600 dark:text-purple-400',
-        border: 'border-purple-500/20',
-        glow: 'group-hover:shadow-purple-500/20',
+        bg: 'bg-violet-500/10 group-hover:bg-violet-500/20',
+        text: 'text-violet-500 dark:text-violet-400',
+        border: 'border-violet-500/30',
+        glow: 'group-hover:shadow-violet-500/20',
+        gradient: 'from-violet-500 to-purple-500',
+        ring: 'ring-violet-500/20',
       };
     case 'code':
       return {
         bg: 'bg-emerald-500/10 group-hover:bg-emerald-500/20',
-        text: 'text-emerald-600 dark:text-emerald-400',
-        border: 'border-emerald-500/20',
+        text: 'text-emerald-500 dark:text-emerald-400',
+        border: 'border-emerald-500/30',
         glow: 'group-hover:shadow-emerald-500/20',
+        gradient: 'from-emerald-500 to-teal-500',
+        ring: 'ring-emerald-500/20',
       };
     case 'article':
       return {
-        bg: 'bg-blue-500/10 group-hover:bg-blue-500/20',
-        text: 'text-blue-600 dark:text-blue-400',
-        border: 'border-blue-500/20',
-        glow: 'group-hover:shadow-blue-500/20',
+        bg: 'bg-sky-500/10 group-hover:bg-sky-500/20',
+        text: 'text-sky-500 dark:text-sky-400',
+        border: 'border-sky-500/30',
+        glow: 'group-hover:shadow-sky-500/20',
+        gradient: 'from-sky-500 to-blue-500',
+        ring: 'ring-sky-500/20',
       };
   }
 };
@@ -74,37 +82,43 @@ export const ResourceCard = ({ resource }: ResourceCardProps) => {
       href={resource.fileUrl} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="block h-full"
+      className="block h-full group"
     >
-      <Card className={`group glass glass-hover h-full flex flex-col overflow-hidden relative cursor-pointer hover:shadow-lg ${styles.glow} transition-all duration-300`}>
-        {/* Top accent line */}
-        <div className={`absolute top-0 left-0 right-0 h-1 ${styles.bg} ${styles.text.replace('text-', 'bg-').replace('/10', '')} opacity-50 group-hover:opacity-100 transition-opacity`} />
+      <Card className={`glass glass-hover h-full flex flex-col overflow-hidden relative cursor-pointer hover:shadow-2xl ${styles.glow} transition-all duration-500`}>
+        {/* Animated top accent */}
+        <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${styles.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
         
-        <CardHeader className="pb-2 sm:pb-3">
-          <div className="flex items-start justify-between gap-2">
-            <div className={`p-2 sm:p-3 rounded-xl ${styles.bg} ${styles.text} ${styles.border} border group-hover:scale-105 transition-all duration-300`}>
+        {/* Corner decoration */}
+        <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${styles.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 rounded-bl-full`} />
+        
+        <CardHeader className="pb-3 sm:pb-4">
+          <div className="flex items-start justify-between gap-3">
+            <div className={`relative p-3 sm:p-4 rounded-2xl ${styles.bg} ${styles.text} ${styles.border} border-2 group-hover:scale-105 group-hover:rotate-3 transition-all duration-500`}>
               {getIcon(resource.type)}
+              {/* Pulse ring */}
+              <div className={`absolute inset-0 rounded-2xl ring-2 ${styles.ring} opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity`} />
             </div>
-            <div className={`p-1.5 sm:p-2 rounded-lg ${styles.bg} opacity-0 group-hover:opacity-100 transition-all duration-300 ${styles.text}`}>
-              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+            <div className={`p-2 rounded-xl ${styles.bg} opacity-0 group-hover:opacity-100 group-hover:translate-x-0 translate-x-2 transition-all duration-500 ${styles.text}`}>
+              <ArrowUpRight className="h-4 w-4" />
             </div>
           </div>
-          <CardTitle className="text-sm sm:text-base lg:text-lg font-semibold line-clamp-2 mt-2 group-hover:text-primary transition-colors">
+          <CardTitle className="text-base sm:text-lg lg:text-xl font-bold line-clamp-2 mt-3 group-hover:text-primary transition-colors duration-300">
             {resource.title}
           </CardTitle>
-          <CardDescription className="text-xs sm:text-sm line-clamp-2 min-h-[2.5rem]">
+          <CardDescription className="text-xs sm:text-sm line-clamp-2 min-h-[2.75rem] leading-relaxed">
             {resource.description}
           </CardDescription>
         </CardHeader>
         
         <CardContent className="mt-auto pt-0">
           <div className="flex items-center justify-between">
-            <span className={`text-[10px] sm:text-xs font-semibold px-2.5 py-1 rounded-full ${styles.bg} ${styles.text} ${styles.border} border`}>
+            <span className={`text-xs font-bold px-3 py-1.5 rounded-full bg-gradient-to-r ${styles.gradient} text-white shadow-md`}>
               {getTypeLabel(resource.type)}
             </span>
-            <span className="text-[10px] text-muted-foreground group-hover:text-primary transition-colors">
-              Click to open →
-            </span>
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground group-hover:text-primary transition-colors duration-300">
+              <span className="font-medium">Open</span>
+              <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+            </div>
           </div>
         </CardContent>
       </Card>
