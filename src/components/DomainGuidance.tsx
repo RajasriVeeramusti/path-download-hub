@@ -1,15 +1,12 @@
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   GraduationCap, Clock, Target, Lightbulb, Briefcase, 
-  CheckCircle2, Circle, BookOpen, Rocket, MapPin, 
-  ArrowRight, Star, TrendingUp, Code
+  BookOpen, Rocket, MapPin, ArrowRight, Star, TrendingUp, 
+  Code, CheckCircle, Zap, Users, Trophy, Layers
 } from "lucide-react";
-import { DomainGuidance as DomainGuidanceType, getGuidanceForPath } from "@/data/domainGuidance";
+import { getGuidanceForPath } from "@/data/domainGuidance";
 import { LearningPath } from "@/data/learningPaths";
 
 interface DomainGuidanceProps {
@@ -18,86 +15,123 @@ interface DomainGuidanceProps {
 
 export const DomainGuidance = ({ path }: DomainGuidanceProps) => {
   const guidance = getGuidanceForPath(path.id);
-  const [completedMilestones, setCompletedMilestones] = useState<string[]>([]);
   
   if (!guidance) return null;
 
-  const toggleMilestone = (milestoneId: string) => {
-    setCompletedMilestones(prev => 
-      prev.includes(milestoneId) 
-        ? prev.filter(id => id !== milestoneId)
-        : [...prev, milestoneId]
-    );
-  };
-
-  const progressPercentage = (completedMilestones.length / guidance.milestones.length) * 100;
-
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Beginner': return 'bg-green-500/20 text-green-600 border-green-500/30';
-      case 'Intermediate': return 'bg-yellow-500/20 text-yellow-600 border-yellow-500/30';
-      case 'Advanced': return 'bg-red-500/20 text-red-600 border-red-500/30';
+      case 'Beginner': return 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
+      case 'Intermediate': return 'bg-amber-500/20 text-amber-400 border-amber-500/30';
+      case 'Advanced': return 'bg-rose-500/20 text-rose-400 border-rose-500/30';
       default: return 'bg-primary/20 text-primary border-primary/30';
     }
   };
 
   const getDemandColor = (demand: string) => {
     switch (demand) {
-      case 'High': return 'bg-green-500/20 text-green-600';
-      case 'Medium': return 'bg-yellow-500/20 text-yellow-600';
-      case 'Low': return 'bg-red-500/20 text-red-600';
+      case 'High': return 'bg-emerald-500/20 text-emerald-400';
+      case 'Medium': return 'bg-amber-500/20 text-amber-400';
+      case 'Low': return 'bg-rose-500/20 text-rose-400';
       default: return 'bg-muted text-muted-foreground';
     }
   };
 
   const getImportanceColor = (importance: string) => {
     switch (importance) {
-      case 'required': return 'bg-red-500/20 text-red-600 border-red-500/30';
-      case 'recommended': return 'bg-yellow-500/20 text-yellow-600 border-yellow-500/30';
-      case 'optional': return 'bg-green-500/20 text-green-600 border-green-500/30';
+      case 'required': return 'bg-rose-500/20 text-rose-400 border-rose-500/30';
+      case 'recommended': return 'bg-amber-500/20 text-amber-400 border-amber-500/30';
+      case 'optional': return 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30';
       default: return 'bg-muted text-muted-foreground';
     }
   };
 
+  const getPhaseColor = (index: number) => {
+    const colors = [
+      'from-violet-500 to-purple-600',
+      'from-blue-500 to-cyan-500',
+      'from-emerald-500 to-teal-500',
+      'from-amber-500 to-orange-500',
+      'from-rose-500 to-pink-500',
+      'from-indigo-500 to-blue-600',
+    ];
+    return colors[index % colors.length];
+  };
+
   return (
     <div className="space-y-6 sm:space-y-8 animate-fade-in">
-      {/* Overview Section */}
-      <Card className="glass border-primary/20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-        <CardHeader className="relative">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="text-4xl sm:text-5xl">{path.icon}</div>
-            <div className="flex-1">
-              <CardTitle className="text-xl sm:text-2xl lg:text-3xl gradient-text mb-2">
-                {path.title} Learning Guide
-              </CardTitle>
-              <p className="text-sm sm:text-base text-muted-foreground">{guidance.overview}</p>
+      {/* Hero Overview Section */}
+      <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-primary/10 via-card to-secondary/10">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-secondary/20 to-transparent rounded-full blur-3xl" />
+        
+        <CardHeader className="relative pb-2">
+          <div className="flex flex-col md:flex-row md:items-start gap-6">
+            <div className="relative">
+              <div className="text-6xl sm:text-7xl p-4 bg-gradient-to-br from-card to-muted rounded-2xl shadow-xl border border-border/50">
+                {path.icon}
+              </div>
+              <div className="absolute -bottom-2 -right-2 p-2 bg-gradient-to-r from-primary to-secondary rounded-full">
+                <Rocket className="h-4 w-4 text-primary-foreground" />
+              </div>
+            </div>
+            
+            <div className="flex-1 space-y-4">
+              <div>
+                <Badge variant="outline" className={`mb-3 ${getDifficultyColor(guidance.difficulty)}`}>
+                  <Target className="h-3 w-3 mr-1" />
+                  {guidance.difficulty} Level
+                </Badge>
+                <CardTitle className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text">
+                  {path.title} Mastery Guide
+                </CardTitle>
+              </div>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
+                {guidance.overview}
+              </p>
             </div>
           </div>
         </CardHeader>
-        <CardContent className="relative">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-            <div className="p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50 text-center">
-              <Clock className="h-5 w-5 sm:h-6 sm:w-6 mx-auto mb-2 text-primary" />
-              <p className="text-xs text-muted-foreground">Duration</p>
-              <p className="font-semibold text-sm sm:text-base">{guidance.totalDuration}</p>
+        
+        <CardContent className="relative pt-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="group p-4 rounded-2xl bg-gradient-to-br from-violet-500/10 to-purple-500/5 border border-violet-500/20 hover:border-violet-500/40 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-2 rounded-xl bg-violet-500/20">
+                  <Clock className="h-5 w-5 text-violet-400" />
+                </div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider">Duration</span>
+              </div>
+              <p className="font-bold text-lg sm:text-xl">{guidance.totalDuration}</p>
             </div>
-            <div className="p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50 text-center">
-              <Target className="h-5 w-5 sm:h-6 sm:w-6 mx-auto mb-2 text-secondary" />
-              <p className="text-xs text-muted-foreground">Difficulty</p>
-              <Badge variant="outline" className={`${getDifficultyColor(guidance.difficulty)} text-xs mt-1`}>
-                {guidance.difficulty}
-              </Badge>
+            
+            <div className="group p-4 rounded-2xl bg-gradient-to-br from-blue-500/10 to-cyan-500/5 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-2 rounded-xl bg-blue-500/20">
+                  <BookOpen className="h-5 w-5 text-blue-400" />
+                </div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider">Weekly</span>
+              </div>
+              <p className="font-bold text-lg sm:text-xl">{guidance.weeklyCommitment}</p>
             </div>
-            <div className="p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50 text-center">
-              <BookOpen className="h-5 w-5 sm:h-6 sm:w-6 mx-auto mb-2 text-accent" />
-              <p className="text-xs text-muted-foreground">Weekly Hours</p>
-              <p className="font-semibold text-sm sm:text-base">{guidance.weeklyCommitment}</p>
+            
+            <div className="group p-4 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-teal-500/5 border border-emerald-500/20 hover:border-emerald-500/40 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-2 rounded-xl bg-emerald-500/20">
+                  <Layers className="h-5 w-5 text-emerald-400" />
+                </div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider">Phases</span>
+              </div>
+              <p className="font-bold text-lg sm:text-xl">{guidance.milestones.length} Milestones</p>
             </div>
-            <div className="p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50 text-center">
-              <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 mx-auto mb-2 text-primary" />
-              <p className="text-xs text-muted-foreground">Milestones</p>
-              <p className="font-semibold text-sm sm:text-base">{guidance.milestones.length} Steps</p>
+            
+            <div className="group p-4 rounded-2xl bg-gradient-to-br from-amber-500/10 to-orange-500/5 border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-2 rounded-xl bg-amber-500/20">
+                  <Trophy className="h-5 w-5 text-amber-400" />
+                </div>
+                <span className="text-xs text-muted-foreground uppercase tracking-wider">Careers</span>
+              </div>
+              <p className="font-bold text-lg sm:text-xl">{guidance.careerPaths.length} Paths</p>
             </div>
           </div>
         </CardContent>
@@ -105,135 +139,169 @@ export const DomainGuidance = ({ path }: DomainGuidanceProps) => {
 
       {/* Tabbed Content */}
       <Tabs defaultValue="roadmap" className="w-full">
-        <TabsList className="w-full sm:w-auto grid grid-cols-4 sm:flex gap-1 bg-card/80 border border-border/50 p-1 rounded-xl">
-          <TabsTrigger value="roadmap" className="text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground">
-            <MapPin className="h-3 w-3 sm:h-4 sm:w-4 sm:mr-1.5" />
-            <span className="hidden sm:inline">Roadmap</span>
+        <TabsList className="w-full sm:w-auto flex flex-wrap gap-1 bg-card/80 backdrop-blur-sm border border-border/50 p-1.5 rounded-xl h-auto">
+          <TabsTrigger value="roadmap" className="flex-1 sm:flex-none text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground rounded-lg">
+            <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-1.5" />
+            Roadmap
           </TabsTrigger>
-          <TabsTrigger value="prerequisites" className="text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground">
-            <BookOpen className="h-3 w-3 sm:h-4 sm:w-4 sm:mr-1.5" />
-            <span className="hidden sm:inline">Prerequisites</span>
+          <TabsTrigger value="prerequisites" className="flex-1 sm:flex-none text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground rounded-lg">
+            <BookOpen className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-1.5" />
+            Prerequisites
           </TabsTrigger>
-          <TabsTrigger value="tips" className="text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground">
-            <Lightbulb className="h-3 w-3 sm:h-4 sm:w-4 sm:mr-1.5" />
-            <span className="hidden sm:inline">Study Tips</span>
+          <TabsTrigger value="tips" className="flex-1 sm:flex-none text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground rounded-lg">
+            <Lightbulb className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-1.5" />
+            Tips
           </TabsTrigger>
-          <TabsTrigger value="careers" className="text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground">
-            <Briefcase className="h-3 w-3 sm:h-4 sm:w-4 sm:mr-1.5" />
-            <span className="hidden sm:inline">Careers</span>
+          <TabsTrigger value="careers" className="flex-1 sm:flex-none text-xs sm:text-sm data-[state=active]:bg-gradient-to-r data-[state=active]:from-primary data-[state=active]:to-secondary data-[state=active]:text-primary-foreground rounded-lg">
+            <Briefcase className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-1.5" />
+            Careers
           </TabsTrigger>
         </TabsList>
 
-        {/* Roadmap Tab */}
+        {/* Enhanced Roadmap Tab */}
         <TabsContent value="roadmap" className="mt-6">
-          <Card className="glass border-border/50">
-            <CardHeader>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                    <Rocket className="h-5 w-5 text-primary" />
-                    Your Learning Roadmap
-                  </CardTitle>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Track your progress through {guidance.milestones.length} key milestones
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="text-right">
-                    <p className="text-2xl font-bold gradient-text">{Math.round(progressPercentage)}%</p>
-                    <p className="text-xs text-muted-foreground">Complete</p>
-                  </div>
-                </div>
+          <div className="space-y-6">
+            {/* Roadmap Header */}
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
+                <Rocket className="h-4 w-4" />
+                <span className="text-sm font-medium">Your Learning Journey</span>
               </div>
-              <Progress value={progressPercentage} className="h-2 mt-4" />
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {guidance.milestones.map((milestone, index) => {
-                const isCompleted = completedMilestones.includes(milestone.id);
-                return (
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">Complete Roadmap</h3>
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Follow these {guidance.milestones.length} phases to master {path.title}. Each phase builds on the previous one.
+              </p>
+            </div>
+
+            {/* Milestone Cards */}
+            <div className="relative">
+              {/* Connection Line for Desktop */}
+              <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent transform -translate-x-1/2" />
+              
+              <div className="space-y-6 lg:space-y-8">
+                {guidance.milestones.map((milestone, index) => (
                   <div 
                     key={milestone.id}
-                    className={`relative p-4 sm:p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer group ${
-                      isCompleted 
-                        ? 'bg-green-500/10 border-green-500/30' 
-                        : 'bg-card/50 border-border/50 hover:border-primary/30 hover:bg-primary/5'
-                    }`}
-                    onClick={() => toggleMilestone(milestone.id)}
+                    className={`relative lg:flex lg:items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}
                   >
-                    {/* Connection Line */}
-                    {index < guidance.milestones.length - 1 && (
-                      <div className={`absolute left-7 sm:left-8 top-full w-0.5 h-4 ${
-                        isCompleted ? 'bg-green-500' : 'bg-border'
-                      }`} />
-                    )}
-                    
-                    <div className="flex gap-3 sm:gap-4">
-                      <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all ${
-                        isCompleted 
-                          ? 'bg-green-500 text-white' 
-                          : 'bg-primary/20 text-primary group-hover:bg-primary group-hover:text-primary-foreground'
-                      }`}>
-                        {isCompleted ? (
-                          <CheckCircle2 className="h-5 w-5 sm:h-6 sm:w-6" />
-                        ) : (
-                          <span className="font-bold text-sm sm:text-base">{index + 1}</span>
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 mb-2">
-                          <h4 className={`font-semibold text-sm sm:text-base ${isCompleted ? 'line-through text-muted-foreground' : ''}`}>
-                            {milestone.title}
-                          </h4>
-                          <Badge variant="outline" className="w-fit text-xs bg-primary/10 border-primary/30">
-                            <Clock className="h-3 w-3 mr-1" />
-                            {milestone.estimatedTime}
-                          </Badge>
-                        </div>
-                        <p className="text-xs sm:text-sm text-muted-foreground mb-3">{milestone.description}</p>
-                        <div className="flex flex-wrap gap-1.5">
-                          {milestone.skills.map((skill, idx) => (
-                            <Badge 
-                              key={idx} 
-                              variant="secondary" 
-                              className="text-[10px] sm:text-xs bg-secondary/50"
-                            >
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
+                    {/* Phase Number - Desktop */}
+                    <div className="hidden lg:flex absolute left-1/2 transform -translate-x-1/2 z-10">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${getPhaseColor(index)} flex items-center justify-center shadow-lg border-4 border-background`}>
+                        <span className="font-bold text-white text-lg">{index + 1}</span>
                       </div>
                     </div>
+
+                    {/* Card */}
+                    <div className={`lg:w-[45%] ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'}`}>
+                      <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-1">
+                        <div className={`absolute inset-0 bg-gradient-to-br ${getPhaseColor(index)} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                        
+                        <CardHeader className="pb-3">
+                          <div className="flex items-start gap-4">
+                            {/* Phase Number - Mobile */}
+                            <div className={`lg:hidden flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${getPhaseColor(index)} flex items-center justify-center shadow-lg`}>
+                              <span className="font-bold text-white">{index + 1}</span>
+                            </div>
+                            
+                            <div className="flex-1 min-w-0">
+                              <div className="flex flex-wrap items-center gap-2 mb-2">
+                                <Badge variant="outline" className="bg-primary/10 border-primary/30 text-primary text-xs">
+                                  <Clock className="h-3 w-3 mr-1" />
+                                  {milestone.estimatedTime}
+                                </Badge>
+                                <Badge variant="outline" className="bg-muted/50 border-muted-foreground/30 text-muted-foreground text-xs">
+                                  Phase {index + 1}
+                                </Badge>
+                              </div>
+                              <CardTitle className="text-lg sm:text-xl font-bold">
+                                {milestone.title}
+                              </CardTitle>
+                            </div>
+                          </div>
+                        </CardHeader>
+                        
+                        <CardContent className="space-y-4">
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {milestone.description}
+                          </p>
+                          
+                          {/* Skills Grid */}
+                          <div>
+                            <div className="flex items-center gap-2 mb-3">
+                              <Zap className="h-4 w-4 text-amber-400" />
+                              <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Skills You'll Learn</span>
+                            </div>
+                            <div className="flex flex-wrap gap-2">
+                              {milestone.skills.map((skill, idx) => (
+                                <Badge 
+                                  key={idx} 
+                                  variant="secondary" 
+                                  className="text-xs bg-secondary/30 hover:bg-secondary/50 transition-colors"
+                                >
+                                  <CheckCircle className="h-3 w-3 mr-1 text-emerald-400" />
+                                  {skill}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                    
+                    {/* Empty space for alternating layout */}
+                    <div className="hidden lg:block lg:w-[45%]" />
                   </div>
-                );
-              })}
-            </CardContent>
-          </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* What's Next Section */}
+            <Card className="mt-8 bg-gradient-to-r from-primary/10 via-card to-secondary/10 border-primary/20">
+              <CardContent className="p-6 sm:p-8">
+                <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-primary to-secondary">
+                    <GraduationCap className="h-8 w-8 text-primary-foreground" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-lg font-bold mb-1">Ready to Start?</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Check out the Resources tab for curated learning materials, or explore career opportunities to see where this path can take you.
+                    </p>
+                  </div>
+                  <ArrowRight className="hidden sm:block h-6 w-6 text-primary animate-pulse" />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </TabsContent>
 
         {/* Prerequisites Tab */}
         <TabsContent value="prerequisites" className="mt-6">
-          <div className="grid gap-4 sm:gap-6">
-            <Card className="glass border-border/50">
+          <div className="grid gap-6 lg:grid-cols-2">
+            {/* Prerequisites List */}
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                  Before You Start
-                </CardTitle>
-                <p className="text-sm text-muted-foreground">
-                  Make sure you have these foundations covered
-                </p>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500">
+                    <BookOpen className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg sm:text-xl">Before You Start</CardTitle>
+                    <p className="text-sm text-muted-foreground">Foundation knowledge needed</p>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent className="space-y-3">
                 {guidance.prerequisites.map((prereq) => (
                   <div 
                     key={prereq.id}
-                    className="flex items-start gap-3 p-3 sm:p-4 rounded-xl bg-card/50 border border-border/50"
+                    className="group flex items-start gap-4 p-4 rounded-xl bg-muted/30 border border-border/50 hover:border-primary/30 hover:bg-muted/50 transition-all"
                   >
-                    <div className={`flex-shrink-0 px-2 py-1 rounded-md text-[10px] sm:text-xs font-medium capitalize border ${getImportanceColor(prereq.importance)}`}>
+                    <Badge variant="outline" className={`flex-shrink-0 capitalize ${getImportanceColor(prereq.importance)}`}>
                       {prereq.importance}
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-sm sm:text-base">{prereq.name}</h4>
+                    </Badge>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-sm sm:text-base mb-1">{prereq.name}</h4>
                       <p className="text-xs sm:text-sm text-muted-foreground">{prereq.description}</p>
                     </div>
                   </div>
@@ -242,27 +310,29 @@ export const DomainGuidance = ({ path }: DomainGuidanceProps) => {
             </Card>
 
             {/* Project Ideas */}
-            <Card className="glass border-border/50">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                  <Code className="h-5 w-5 text-secondary" />
-                  Project Ideas
-                </CardTitle>
-                <p className="text-sm text-muted-foreground">
-                  Practice with these hands-on projects
-                </p>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500">
+                    <Code className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-lg sm:text-xl">Project Ideas</CardTitle>
+                    <p className="text-sm text-muted-foreground">Build these to practice</p>
+                  </div>
+                </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid gap-3">
                   {guidance.projectIdeas.map((idea, index) => (
                     <div 
                       key={index}
-                      className="flex items-center gap-3 p-3 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-colors"
+                      className="group flex items-center gap-4 p-4 rounded-xl bg-muted/30 border border-border/50 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-primary font-bold text-sm">
+                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500/20 to-purple-500/20 flex items-center justify-center text-violet-400 font-bold group-hover:scale-110 transition-transform">
                         {index + 1}
                       </div>
-                      <span className="text-sm">{idea}</span>
+                      <span className="text-sm font-medium">{idea}</span>
                     </div>
                   ))}
                 </div>
@@ -273,69 +343,100 @@ export const DomainGuidance = ({ path }: DomainGuidanceProps) => {
 
         {/* Study Tips Tab */}
         <TabsContent value="tips" className="mt-6">
-          <Card className="glass border-border/50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                <Lightbulb className="h-5 w-5 text-yellow-500" />
-                Expert Study Tips
-              </CardTitle>
-              <p className="text-sm text-muted-foreground">
-                Maximize your learning with these proven strategies
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {guidance.studyTips.map((tip, index) => (
-                  <div 
-                    key={tip.id}
-                    className="p-4 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all group"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <div className="text-3xl mb-3 group-hover:scale-110 transition-transform">
-                      {tip.icon}
-                    </div>
-                    <h4 className="font-semibold text-sm sm:text-base mb-2">{tip.title}</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">{tip.description}</p>
+          <div className="mb-6 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-400 mb-4">
+              <Lightbulb className="h-4 w-4" />
+              <span className="text-sm font-medium">Expert Advice</span>
+            </div>
+            <h3 className="text-2xl font-bold mb-2">Study Tips for Success</h3>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Follow these proven strategies to maximize your learning efficiency
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {guidance.studyTips.map((tip, index) => (
+              <Card 
+                key={tip.id}
+                className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-500 hover:-translate-y-1"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-orange-500/0 group-hover:from-amber-500/5 group-hover:to-orange-500/5 transition-all duration-500" />
+                
+                <CardContent className="relative p-5">
+                  <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                    {tip.icon}
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                  <h4 className="font-bold text-base sm:text-lg mb-2">{tip.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{tip.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </TabsContent>
 
         {/* Careers Tab */}
         <TabsContent value="careers" className="mt-6">
-          <Card className="glass border-border/50">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
-                <Briefcase className="h-5 w-5 text-primary" />
-                Career Opportunities
-              </CardTitle>
-              <p className="text-sm text-muted-foreground">
-                Explore potential career paths after completing this learning path
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {guidance.careerPaths.map((career, index) => (
-                  <div 
-                    key={index}
-                    className="p-4 sm:p-5 rounded-xl bg-card/50 border border-border/50 hover:border-primary/30 transition-all group"
-                  >
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <h4 className="font-semibold text-sm sm:text-base">{career.title}</h4>
-                      <Badge className={`text-[10px] sm:text-xs ${getDemandColor(career.demand)}`}>
-                        <TrendingUp className="h-3 w-3 mr-1" />
-                        {career.demand} Demand
-                      </Badge>
+          <div className="mb-6 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-400 mb-4">
+              <Briefcase className="h-4 w-4" />
+              <span className="text-sm font-medium">Your Future</span>
+            </div>
+            <h3 className="text-2xl font-bold mb-2">Career Opportunities</h3>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Explore exciting career paths you can pursue after mastering {path.title}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {guidance.careerPaths.map((career, index) => (
+              <Card 
+                key={index}
+                className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/10 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <CardContent className="relative p-5 sm:p-6">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20">
+                        <Users className="h-5 w-5 text-primary" />
+                      </div>
+                      <h4 className="font-bold text-base sm:text-lg">{career.title}</h4>
                     </div>
-                    <p className="text-xs sm:text-sm text-muted-foreground mb-3">{career.description}</p>
-                    <div className="flex items-center gap-2 text-primary">
-                      <Star className="h-4 w-4" />
-                      <span className="font-medium text-sm">{career.salary}</span>
-                    </div>
+                    <Badge className={`text-xs ${getDemandColor(career.demand)}`}>
+                      <TrendingUp className="h-3 w-3 mr-1" />
+                      {career.demand}
+                    </Badge>
                   </div>
-                ))}
+                  
+                  <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    {career.description}
+                  </p>
+                  
+                  <div className="flex items-center gap-2 p-3 rounded-xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20">
+                    <Star className="h-5 w-5 text-emerald-400" />
+                    <span className="font-bold text-emerald-400">{career.salary}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Career Tips */}
+          <Card className="mt-6 bg-gradient-to-r from-primary/5 via-card to-secondary/5 border-primary/20">
+            <CardContent className="p-6">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20">
+                  <GraduationCap className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold mb-2">Career Pro Tip</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Build a strong portfolio with 3-5 quality projects. Employers value demonstrated skills over certificates. 
+                    Network on LinkedIn and contribute to open source to stand out from other candidates.
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
