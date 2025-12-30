@@ -329,13 +329,25 @@ const Auth = () => {
 
         if (error) {
           toast.error(error.message);
-        } else {
-          toast.success("Password reset link sent! Check your email to confirm the change.");
-          setShowForgotPassword(false);
-          setResetEmail("");
-          setNewPassword("");
-          setConfirmPassword("");
+          return;
         }
+
+        // Send confirmation email via edge function
+        const resetLink = `${window.location.origin}/auth?reset=true`;
+        const { error: emailError } = await supabase.functions.invoke('send-password-reset', {
+          body: { email: resetEmail, resetLink }
+        });
+
+        if (emailError) {
+          console.error("Email sending error:", emailError);
+          // Don't block the flow, just log the error
+        }
+
+        toast.success("Password reset link sent! Check your email to confirm the change.");
+        setShowForgotPassword(false);
+        setResetEmail("");
+        setNewPassword("");
+        setConfirmPassword("");
       } catch (error) {
         toast.error("An unexpected error occurred");
       } finally {

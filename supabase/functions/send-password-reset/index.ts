@@ -1,7 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -23,11 +22,19 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { email, resetLink }: PasswordResetRequest = await req.json();
 
-    const emailResponse = await resend.emails.send({
-      from: "SmartLearn <onboarding@resend.dev>",
-      to: [email],
-      subject: "Reset Your Password - SmartLearn",
-      html: `
+    console.log("Sending password reset email to:", email);
+
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+      },
+      body: JSON.stringify({
+        from: "SmartLearn <onboarding@resend.dev>",
+        to: [email],
+        subject: "Reset Your Password - SmartLearn",
+        html: `
         <!DOCTYPE html>
         <html>
         <head>
@@ -66,9 +73,15 @@ const handler = async (req: Request): Promise<Response> => {
         </body>
         </html>
       `,
+      }),
     });
 
+    const emailResponse = await res.json();
     console.log("Password reset email sent successfully:", emailResponse);
+
+    if (!res.ok) {
+      throw new Error(emailResponse.message || "Failed to send email");
+    }
 
     return new Response(JSON.stringify(emailResponse), {
       status: 200,
