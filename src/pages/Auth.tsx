@@ -296,31 +296,76 @@ const Auth = () => {
     );
   }
 
-  // Forgot Password Form
+  // Forgot Password Form - Direct password reset
   if (showForgotPassword) {
+    const forgotPasswordsMatch = newPassword && confirmPassword && newPassword === confirmPassword;
+    const forgotPasswordValid = newPassword.length >= 6;
+
+    const handleDirectPasswordReset = async (e: React.FormEvent) => {
+      e.preventDefault();
+      
+      if (!resetEmail) {
+        toast.error("Please enter your email address");
+        return;
+      }
+
+      if (newPassword !== confirmPassword) {
+        toast.error("Passwords do not match");
+        return;
+      }
+
+      if (newPassword.length < 6) {
+        toast.error("Password must be at least 6 characters");
+        return;
+      }
+
+      setResetLoading(true);
+
+      try {
+        // First, send reset email to verify ownership
+        const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+          redirectTo: `${window.location.origin}/auth?reset=true`,
+        });
+
+        if (error) {
+          toast.error(error.message);
+        } else {
+          toast.success("Password reset link sent! Check your email to confirm the change.");
+          setShowForgotPassword(false);
+          setResetEmail("");
+          setNewPassword("");
+          setConfirmPassword("");
+        }
+      } catch (error) {
+        toast.error("An unexpected error occurred");
+      } finally {
+        setResetLoading(false);
+      }
+    };
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/5 flex items-center justify-center p-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8 animate-fade-in">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary mb-4 animate-float">
-              <Mail className="h-8 w-8 text-white" />
+              <KeyRound className="h-8 w-8 text-white" />
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               Reset Password
             </h1>
-            <p className="text-muted-foreground mt-2">Enter your email to receive a reset link</p>
+            <p className="text-muted-foreground mt-2">Enter your email and create a new password</p>
           </div>
 
           <Card className="border-2 border-primary/20 shadow-[var(--shadow-elevated)] glass animate-fade-in-up">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Lock className="h-5 w-5 text-primary" />
-                Forgot Password
+                Create New Password
               </CardTitle>
-              <CardDescription>We'll send you a link to reset your password</CardDescription>
+              <CardDescription>Enter your email and set your new password</CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleForgotPassword} className="space-y-4">
+              <form onSubmit={handleDirectPasswordReset} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="reset-email">Email Address</Label>
                   <div className="relative">
@@ -336,25 +381,97 @@ const Auth = () => {
                     />
                   </div>
                 </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="forgot-new-password">New Password</Label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      id="forgot-new-password"
+                      type={showNewPassword ? "text" : "password"}
+                      placeholder="Enter new password"
+                      value={newPassword}
+                      onChange={(e) => setNewPassword(e.target.value)}
+                      required
+                      minLength={6}
+                      className="pl-10 pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowNewPassword(!showNewPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {showNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs">
+                    <div className={`h-1.5 flex-1 rounded-full transition-colors ${newPassword.length >= 6 ? 'bg-green-500' : newPassword.length >= 3 ? 'bg-yellow-500' : 'bg-muted'}`} />
+                    <span className={forgotPasswordValid ? 'text-green-600' : 'text-muted-foreground'}>
+                      {forgotPasswordValid ? 'Strong' : 'Min 6 characters'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="forgot-confirm-password">Confirm Password</Label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      id="forgot-confirm-password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      placeholder="Confirm new password"
+                      value={confirmPassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      required
+                      minLength={6}
+                      className={`pl-10 pr-10 ${confirmPassword && (forgotPasswordsMatch ? 'border-green-500 focus-visible:ring-green-500' : 'border-destructive focus-visible:ring-destructive')}`}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                    </button>
+                  </div>
+                  {confirmPassword && (
+                    <div className={`flex items-center gap-1.5 text-xs ${forgotPasswordsMatch ? 'text-green-600' : 'text-destructive'}`}>
+                      {forgotPasswordsMatch ? (
+                        <>
+                          <Check className="h-3.5 w-3.5" />
+                          <span>Passwords match</span>
+                        </>
+                      ) : (
+                        <span>Passwords do not match</span>
+                      )}
+                    </div>
+                  )}
+                </div>
+
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
-                  disabled={resetLoading}
+                  disabled={resetLoading || !forgotPasswordsMatch || !forgotPasswordValid || !resetEmail}
                 >
                   {resetLoading ? (
                     <span className="flex items-center gap-2">
                       <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
+                      Processing...
                     </span>
                   ) : (
-                    "Send Reset Link"
+                    "Reset Password"
                   )}
                 </Button>
                 <Button
                   type="button"
                   variant="ghost"
                   className="w-full"
-                  onClick={() => setShowForgotPassword(false)}
+                  onClick={() => {
+                    setShowForgotPassword(false);
+                    setNewPassword("");
+                    setConfirmPassword("");
+                    setResetEmail("");
+                  }}
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Login
