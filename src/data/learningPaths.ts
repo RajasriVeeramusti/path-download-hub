@@ -1898,5 +1898,581 @@ export const learningPaths: LearningPath[] = [
         size: '380 MB'
       }
     ]
+  },
+  {
+    id: 'devops',
+    title: 'DevOps & Cloud',
+    description: 'Master CI/CD, containerization, and cloud infrastructure',
+    icon: '☁️',
+    color: 'from-sky-500 to-blue-600',
+    resources: [
+      {
+        id: 'devops-1',
+        title: 'Introduction to DevOps',
+        description: 'Understanding DevOps culture and practices',
+        type: 'article',
+        contentType: 'DevOps Fundamentals',
+        fileUrl: 'https://www.atlassian.com/devops',
+        size: '2.8 MB'
+      },
+      {
+        id: 'devops-2',
+        title: 'Docker Complete Guide',
+        description: 'Containerization from basics to advanced',
+        type: 'video',
+        contentType: 'Containers',
+        fileUrl: 'https://www.youtube.com/watch?v=fqMOX6JJhGo',
+        size: '680 MB'
+      },
+      {
+        id: 'devops-3',
+        title: 'Kubernetes Fundamentals',
+        description: 'Container orchestration at scale',
+        type: 'video',
+        contentType: 'Containers',
+        fileUrl: 'https://www.youtube.com/watch?v=X48VuDVv0do',
+        size: '720 MB'
+      },
+      {
+        id: 'devops-4',
+        title: 'AWS Cloud Practitioner',
+        description: 'Amazon Web Services fundamentals',
+        type: 'article',
+        contentType: 'Cloud Platforms',
+        fileUrl: 'https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/',
+        size: '4.2 MB'
+      },
+      {
+        id: 'devops-5',
+        title: 'Azure Fundamentals',
+        description: 'Microsoft Azure cloud services',
+        type: 'video',
+        contentType: 'Cloud Platforms',
+        fileUrl: 'https://www.youtube.com/watch?v=NKEFWyqJ5XA',
+        size: '580 MB'
+      },
+      {
+        id: 'devops-6',
+        title: 'CI/CD with GitHub Actions',
+        description: 'Automate your deployment pipeline',
+        type: 'video',
+        contentType: 'CI/CD',
+        fileUrl: 'https://www.youtube.com/watch?v=R8_veQiYBjI',
+        size: '450 MB'
+      },
+      {
+        id: 'devops-7',
+        title: 'Infrastructure as Code with Terraform',
+        description: 'Manage cloud resources with code',
+        type: 'article',
+        contentType: 'IaC',
+        fileUrl: 'https://developer.hashicorp.com/terraform/tutorials',
+        size: '3.6 MB'
+      },
+      {
+        id: 'devops-8',
+        title: 'Linux System Administration',
+        description: 'Essential Linux skills for DevOps',
+        type: 'video',
+        contentType: 'Linux',
+        fileUrl: 'https://www.youtube.com/watch?v=wBp0Rb-ZJak',
+        size: '620 MB'
+      }
+    ]
+  },
+  {
+    id: 'game-dev',
+    title: 'Game Development',
+    description: 'Create 2D and 3D games with popular engines',
+    icon: '🎮',
+    color: 'from-red-500 to-orange-500',
+    resources: [
+      {
+        id: 'game-1',
+        title: 'Game Design Fundamentals',
+        description: 'Core principles of game design',
+        type: 'article',
+        contentType: 'Game Design',
+        fileUrl: 'https://www.gamedeveloper.com/design',
+        size: '3.1 MB'
+      },
+      {
+        id: 'game-2',
+        title: 'Unity Complete Course',
+        description: 'Build games with Unity engine',
+        type: 'video',
+        contentType: 'Unity',
+        fileUrl: 'https://www.youtube.com/watch?v=gB1F9G0JXOo',
+        size: '850 MB'
+      },
+      {
+        id: 'game-3',
+        title: 'C# for Game Development',
+        description: 'Programming fundamentals for Unity',
+        type: 'video',
+        contentType: 'Unity',
+        fileUrl: 'https://www.youtube.com/watch?v=pSiIHe2uZ2w',
+        size: '620 MB'
+      },
+      {
+        id: 'game-4',
+        title: 'Unreal Engine Basics',
+        description: 'AAA game development with Unreal',
+        type: 'video',
+        contentType: 'Unreal Engine',
+        fileUrl: 'https://www.youtube.com/watch?v=gQmiqmxJMtA',
+        size: '780 MB'
+      },
+      {
+        id: 'game-5',
+        title: 'Blueprints Visual Scripting',
+        description: 'Program games without code in Unreal',
+        type: 'article',
+        contentType: 'Unreal Engine',
+        fileUrl: 'https://docs.unrealengine.com/5.0/en-US/blueprints-visual-scripting-in-unreal-engine/',
+        size: '4.3 MB'
+      },
+      {
+        id: 'game-6',
+        title: 'Godot Game Engine',
+        description: 'Open-source game development',
+        type: 'video',
+        contentType: 'Godot',
+        fileUrl: 'https://www.youtube.com/watch?v=LOhfqjmasi0',
+        size: '580 MB'
+      },
+      {
+        id: 'game-7',
+        title: 'Game Physics and Mathematics',
+        description: 'Math concepts for game developers',
+        type: 'article',
+        contentType: 'Game Math',
+        fileUrl: 'https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics',
+        size: '2.9 MB'
+      },
+      {
+        id: 'game-8',
+        title: '2D Game Art and Animation',
+        description: 'Create sprites and animations',
+        type: 'video',
+        contentType: 'Game Art',
+        fileUrl: 'https://www.youtube.com/watch?v=6WiPGSGRnKY',
+        size: '490 MB'
+      }
+    ]
+  },
+  {
+    id: 'ai-ml',
+    title: 'AI & Deep Learning',
+    description: 'Build neural networks and AI applications',
+    icon: '🧠',
+    color: 'from-violet-500 to-purple-600',
+    resources: [
+      {
+        id: 'ai-1',
+        title: 'Introduction to AI',
+        description: 'Understanding artificial intelligence concepts',
+        type: 'article',
+        contentType: 'AI Fundamentals',
+        fileUrl: 'https://www.elementsofai.com/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'ai-2',
+        title: 'Neural Networks Explained',
+        description: 'How neural networks learn and work',
+        type: 'video',
+        contentType: 'Deep Learning',
+        fileUrl: 'https://www.youtube.com/watch?v=aircAruvnKk',
+        size: '480 MB'
+      },
+      {
+        id: 'ai-3',
+        title: 'TensorFlow Complete Guide',
+        description: 'Build ML models with TensorFlow',
+        type: 'video',
+        contentType: 'Deep Learning',
+        fileUrl: 'https://www.youtube.com/watch?v=tPYj3fFJGjk',
+        size: '720 MB'
+      },
+      {
+        id: 'ai-4',
+        title: 'PyTorch for Deep Learning',
+        description: 'Dynamic neural networks with PyTorch',
+        type: 'video',
+        contentType: 'Deep Learning',
+        fileUrl: 'https://www.youtube.com/watch?v=V_xro1bcAuA',
+        size: '680 MB'
+      },
+      {
+        id: 'ai-5',
+        title: 'Natural Language Processing',
+        description: 'Text analysis and language models',
+        type: 'article',
+        contentType: 'NLP',
+        fileUrl: 'https://huggingface.co/learn/nlp-course/chapter1/1',
+        size: '4.1 MB'
+      },
+      {
+        id: 'ai-6',
+        title: 'Computer Vision with OpenCV',
+        description: 'Image processing and recognition',
+        type: 'video',
+        contentType: 'Computer Vision',
+        fileUrl: 'https://www.youtube.com/watch?v=oXlwWbU8l2o',
+        size: '590 MB'
+      },
+      {
+        id: 'ai-7',
+        title: 'Building LLM Applications',
+        description: 'Work with large language models',
+        type: 'article',
+        contentType: 'LLMs',
+        fileUrl: 'https://www.langchain.com/docs',
+        size: '3.8 MB'
+      },
+      {
+        id: 'ai-8',
+        title: 'AI Ethics and Responsible AI',
+        description: 'Ethical considerations in AI development',
+        type: 'article',
+        contentType: 'AI Ethics',
+        fileUrl: 'https://www.microsoft.com/en-us/ai/responsible-ai',
+        size: '2.4 MB'
+      }
+    ]
+  },
+  {
+    id: 'finance-tech',
+    title: 'FinTech & Trading',
+    description: 'Learn algorithmic trading and financial technology',
+    icon: '💹',
+    color: 'from-emerald-500 to-green-600',
+    resources: [
+      {
+        id: 'fin-1',
+        title: 'Financial Markets Overview',
+        description: 'Understanding stocks, bonds, and derivatives',
+        type: 'article',
+        contentType: 'Finance Basics',
+        fileUrl: 'https://www.investopedia.com/financial-term-dictionary-4769738',
+        size: '3.5 MB'
+      },
+      {
+        id: 'fin-2',
+        title: 'Python for Finance',
+        description: 'Quantitative analysis with Python',
+        type: 'video',
+        contentType: 'Quantitative Finance',
+        fileUrl: 'https://www.youtube.com/watch?v=xfzGZB4HhEE',
+        size: '620 MB'
+      },
+      {
+        id: 'fin-3',
+        title: 'Algorithmic Trading Basics',
+        description: 'Build trading bots and strategies',
+        type: 'video',
+        contentType: 'Algo Trading',
+        fileUrl: 'https://www.youtube.com/watch?v=SEQbb8w7VTw',
+        size: '580 MB'
+      },
+      {
+        id: 'fin-4',
+        title: 'Blockchain and Cryptocurrency',
+        description: 'Understanding crypto and DeFi',
+        type: 'article',
+        contentType: 'Blockchain',
+        fileUrl: 'https://ethereum.org/en/learn/',
+        size: '4.2 MB'
+      },
+      {
+        id: 'fin-5',
+        title: 'Smart Contract Development',
+        description: 'Build dApps with Solidity',
+        type: 'video',
+        contentType: 'Blockchain',
+        fileUrl: 'https://www.youtube.com/watch?v=M576WGiDBdQ',
+        size: '720 MB'
+      },
+      {
+        id: 'fin-6',
+        title: 'Risk Management Models',
+        description: 'Financial risk assessment techniques',
+        type: 'article',
+        contentType: 'Risk Management',
+        fileUrl: 'https://www.cfa.institute/en/membership/professional-development/refresher-readings/risk-management',
+        size: '3.1 MB'
+      }
+    ]
+  },
+  {
+    id: 'digital-marketing',
+    title: 'Digital Marketing',
+    description: 'Master SEO, social media, and growth strategies',
+    icon: '📢',
+    color: 'from-pink-500 to-rose-500',
+    resources: [
+      {
+        id: 'dm-1',
+        title: 'Digital Marketing Fundamentals',
+        description: 'Core concepts and strategies',
+        type: 'article',
+        contentType: 'Marketing Basics',
+        fileUrl: 'https://www.hubspot.com/marketing-statistics',
+        size: '2.9 MB'
+      },
+      {
+        id: 'dm-2',
+        title: 'SEO Complete Guide',
+        description: 'Search engine optimization mastery',
+        type: 'video',
+        contentType: 'SEO',
+        fileUrl: 'https://www.youtube.com/watch?v=xsVTqzratPs',
+        size: '540 MB'
+      },
+      {
+        id: 'dm-3',
+        title: 'Google Analytics Mastery',
+        description: 'Track and analyze web traffic',
+        type: 'video',
+        contentType: 'Analytics',
+        fileUrl: 'https://www.youtube.com/watch?v=5fVXQ_0P3dw',
+        size: '480 MB'
+      },
+      {
+        id: 'dm-4',
+        title: 'Social Media Marketing',
+        description: 'Grow audiences on social platforms',
+        type: 'article',
+        contentType: 'Social Media',
+        fileUrl: 'https://buffer.com/library/social-media-marketing/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'dm-5',
+        title: 'Content Marketing Strategy',
+        description: 'Create content that converts',
+        type: 'video',
+        contentType: 'Content Marketing',
+        fileUrl: 'https://www.youtube.com/watch?v=9Z84WJVTbkE',
+        size: '420 MB'
+      },
+      {
+        id: 'dm-6',
+        title: 'Email Marketing Automation',
+        description: 'Build effective email campaigns',
+        type: 'article',
+        contentType: 'Email Marketing',
+        fileUrl: 'https://mailchimp.com/resources/email-marketing-field-guide/',
+        size: '2.7 MB'
+      },
+      {
+        id: 'dm-7',
+        title: 'Google Ads Certification',
+        description: 'Master paid advertising on Google',
+        type: 'video',
+        contentType: 'Paid Ads',
+        fileUrl: 'https://www.youtube.com/watch?v=J5UhsLJqWFU',
+        size: '560 MB'
+      }
+    ]
+  },
+  {
+    id: 'ethical-hacking',
+    title: 'Ethical Hacking',
+    description: 'Learn penetration testing and security auditing',
+    icon: '🔓',
+    color: 'from-gray-600 to-zinc-700',
+    resources: [
+      {
+        id: 'hack-1',
+        title: 'Introduction to Ethical Hacking',
+        description: 'Fundamentals of penetration testing',
+        type: 'article',
+        contentType: 'Hacking Basics',
+        fileUrl: 'https://www.eccouncil.org/cybersecurity/what-is-ethical-hacking/',
+        size: '3.1 MB'
+      },
+      {
+        id: 'hack-2',
+        title: 'Kali Linux Tutorial',
+        description: 'Set up your hacking environment',
+        type: 'video',
+        contentType: 'Tools',
+        fileUrl: 'https://www.youtube.com/watch?v=lZAoFs75_cs',
+        size: '620 MB'
+      },
+      {
+        id: 'hack-3',
+        title: 'Network Penetration Testing',
+        description: 'Exploit network vulnerabilities',
+        type: 'video',
+        contentType: 'Network Security',
+        fileUrl: 'https://www.youtube.com/watch?v=3Kq1MIfTWCE',
+        size: '680 MB'
+      },
+      {
+        id: 'hack-4',
+        title: 'Web Application Security',
+        description: 'Find and exploit web vulnerabilities',
+        type: 'article',
+        contentType: 'Web Security',
+        fileUrl: 'https://owasp.org/www-project-web-security-testing-guide/',
+        size: '4.5 MB'
+      },
+      {
+        id: 'hack-5',
+        title: 'Bug Bounty Hunting',
+        description: 'Earn money finding security bugs',
+        type: 'video',
+        contentType: 'Bug Bounty',
+        fileUrl: 'https://www.youtube.com/watch?v=mZOh6VlGBYQ',
+        size: '540 MB'
+      },
+      {
+        id: 'hack-6',
+        title: 'Social Engineering Attacks',
+        description: 'Understanding human-based vulnerabilities',
+        type: 'article',
+        contentType: 'Social Engineering',
+        fileUrl: 'https://www.kaspersky.com/resource-center/definitions/what-is-social-engineering',
+        size: '2.6 MB'
+      }
+    ]
+  },
+  {
+    id: 'data-engineering',
+    title: 'Data Engineering',
+    description: 'Build data pipelines and warehouses',
+    icon: '🔧',
+    color: 'from-amber-500 to-orange-600',
+    resources: [
+      {
+        id: 'de-1',
+        title: 'Data Engineering Fundamentals',
+        description: 'Introduction to data infrastructure',
+        type: 'article',
+        contentType: 'DE Basics',
+        fileUrl: 'https://www.datacamp.com/blog/what-is-data-engineering',
+        size: '2.8 MB'
+      },
+      {
+        id: 'de-2',
+        title: 'SQL Advanced Techniques',
+        description: 'Complex queries and optimization',
+        type: 'video',
+        contentType: 'SQL',
+        fileUrl: 'https://www.youtube.com/watch?v=7S_tz1z_5bA',
+        size: '520 MB'
+      },
+      {
+        id: 'de-3',
+        title: 'Apache Spark Complete Guide',
+        description: 'Big data processing at scale',
+        type: 'video',
+        contentType: 'Big Data',
+        fileUrl: 'https://www.youtube.com/watch?v=_C8kWso4ne4',
+        size: '720 MB'
+      },
+      {
+        id: 'de-4',
+        title: 'Apache Kafka Streaming',
+        description: 'Real-time data streaming',
+        type: 'video',
+        contentType: 'Streaming',
+        fileUrl: 'https://www.youtube.com/watch?v=qu96DFXtbG4',
+        size: '580 MB'
+      },
+      {
+        id: 'de-5',
+        title: 'ETL Pipeline Design',
+        description: 'Extract, transform, load patterns',
+        type: 'article',
+        contentType: 'ETL',
+        fileUrl: 'https://www.databricks.com/glossary/etl-pipeline',
+        size: '3.4 MB'
+      },
+      {
+        id: 'de-6',
+        title: 'Data Warehouse Design',
+        description: 'Build scalable data warehouses',
+        type: 'article',
+        contentType: 'Data Warehouse',
+        fileUrl: 'https://www.snowflake.com/guides/data-warehouse-design',
+        size: '3.9 MB'
+      },
+      {
+        id: 'de-7',
+        title: 'Apache Airflow for Orchestration',
+        description: 'Automate data workflows',
+        type: 'video',
+        contentType: 'Orchestration',
+        fileUrl: 'https://www.youtube.com/watch?v=AHMm1wfGuHE',
+        size: '490 MB'
+      }
+    ]
+  },
+  {
+    id: 'communication',
+    title: 'Communication Skills',
+    description: 'Master public speaking and professional communication',
+    icon: '🎤',
+    color: 'from-cyan-500 to-teal-500',
+    resources: [
+      {
+        id: 'comm-1',
+        title: 'Public Speaking Fundamentals',
+        description: 'Overcome fear and speak confidently',
+        type: 'video',
+        contentType: 'Public Speaking',
+        fileUrl: 'https://www.youtube.com/watch?v=tShavGuo0_E',
+        size: '380 MB'
+      },
+      {
+        id: 'comm-2',
+        title: 'Business Writing Skills',
+        description: 'Write clear professional documents',
+        type: 'article',
+        contentType: 'Writing',
+        fileUrl: 'https://www.grammarly.com/business/learn/business-writing/',
+        size: '2.4 MB'
+      },
+      {
+        id: 'comm-3',
+        title: 'Presentation Design',
+        description: 'Create impactful presentations',
+        type: 'video',
+        contentType: 'Presentations',
+        fileUrl: 'https://www.youtube.com/watch?v=Iwpi1Lm6dFo',
+        size: '420 MB'
+      },
+      {
+        id: 'comm-4',
+        title: 'Active Listening Skills',
+        description: 'Improve understanding and empathy',
+        type: 'article',
+        contentType: 'Interpersonal',
+        fileUrl: 'https://www.mindtools.com/az4wxv7/active-listening',
+        size: '1.8 MB'
+      },
+      {
+        id: 'comm-5',
+        title: 'Negotiation Techniques',
+        description: 'Win-win negotiation strategies',
+        type: 'video',
+        contentType: 'Negotiation',
+        fileUrl: 'https://www.youtube.com/watch?v=guZa7mQV1l0',
+        size: '450 MB'
+      },
+      {
+        id: 'comm-6',
+        title: 'Email Etiquette',
+        description: 'Professional email communication',
+        type: 'article',
+        contentType: 'Email',
+        fileUrl: 'https://www.indeed.com/career-advice/career-development/email-etiquette',
+        size: '1.6 MB'
+      }
+    ]
   }
 ];
