@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import type { User } from "@supabase/supabase-js";
-import { learningPaths, LearningPath } from "@/data/learningPaths";
+import { learningPaths, LearningPath, Resource } from "@/data/learningPaths";
 import { PathCard } from "@/components/PathCard";
 import { ResourceCard } from "@/components/ResourceCard";
 import { PathHeader } from "@/components/PathHeader";
 import { ArchitectureView } from "@/components/ArchitectureView";
 import { DomainGuidance } from "@/components/DomainGuidance";
+import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut, Download, Compass, FolderOpen } from "lucide-react";
@@ -19,6 +20,18 @@ const Index = () => {
   const [selectedPath, setSelectedPath] = useState<LearningPath | null>(null);
   const [activeTab, setActiveTab] = useState<string>("paths");
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedVideo, setSelectedVideo] = useState<Resource | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  const handleVideoClick = (resource: Resource) => {
+    setSelectedVideo(resource);
+    setIsVideoModalOpen(true);
+  };
+
+  const handleCloseVideoModal = () => {
+    setIsVideoModalOpen(false);
+    setSelectedVideo(null);
+  };
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -269,7 +282,7 @@ const Index = () => {
                               className="animate-fade-in opacity-0" 
                               style={{ animationDelay: `${(groupIndex * 0.1) + (index * 0.05)}s`, animationFillMode: 'forwards' }}
                             >
-                              <ResourceCard resource={resource} />
+                              <ResourceCard resource={resource} onVideoClick={handleVideoClick} />
                             </div>
                           ))}
                         </div>
@@ -306,6 +319,13 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Video Player Modal */}
+      <VideoPlayerModal 
+        resource={selectedVideo}
+        isOpen={isVideoModalOpen}
+        onClose={handleCloseVideoModal}
+      />
     </div>
   );
 };

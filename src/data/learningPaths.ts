@@ -1581,6 +1581,321 @@ export const learningPaths: LearningPath[] = [
         contentType: 'PM Tools',
         fileUrl: 'https://www.youtube.com/watch?v=TsG3OWTDAFY',
         size: '340 MB'
+      },
+      {
+        id: 'proj-8',
+        title: 'Project Budget Management',
+        description: 'Cost estimation and budget tracking',
+        type: 'article',
+        contentType: 'Financial Management',
+        fileUrl: 'https://www.projectmanager.com/blog/project-budget',
+        size: '2.6 MB'
+      }
+    ]
+  },
+  {
+    id: 'iot',
+    title: 'IoT & Embedded Systems',
+    description: 'Build connected devices and smart systems',
+    icon: '🔌',
+    color: 'from-orange-500 to-amber-500',
+    resources: [
+      {
+        id: 'iot-1',
+        title: 'IoT Fundamentals',
+        description: 'Introduction to Internet of Things concepts',
+        type: 'article',
+        contentType: 'IoT Basics',
+        fileUrl: 'https://www.ibm.com/topics/internet-of-things',
+        size: '2.8 MB'
+      },
+      {
+        id: 'iot-2',
+        title: 'Arduino Programming',
+        description: 'Build projects with Arduino microcontrollers',
+        type: 'video',
+        contentType: 'Microcontrollers',
+        fileUrl: 'https://www.youtube.com/watch?v=fJWR7dBuc18',
+        size: '580 MB'
+      },
+      {
+        id: 'iot-3',
+        title: 'Raspberry Pi Projects',
+        description: 'Create IoT solutions with Raspberry Pi',
+        type: 'video',
+        contentType: 'Microcontrollers',
+        fileUrl: 'https://www.youtube.com/watch?v=BpJCAafw2qE',
+        size: '620 MB'
+      },
+      {
+        id: 'iot-4',
+        title: 'MQTT Protocol',
+        description: 'Lightweight messaging for IoT devices',
+        type: 'article',
+        contentType: 'IoT Protocols',
+        fileUrl: 'https://mqtt.org/getting-started/',
+        size: '2.4 MB'
+      },
+      {
+        id: 'iot-5',
+        title: 'Sensor Integration',
+        description: 'Connect and read data from various sensors',
+        type: 'video',
+        contentType: 'Hardware',
+        fileUrl: 'https://www.youtube.com/watch?v=wLT5EOhKzxY',
+        size: '450 MB'
+      },
+      {
+        id: 'iot-6',
+        title: 'IoT Security Best Practices',
+        description: 'Secure your connected devices',
+        type: 'article',
+        contentType: 'Security',
+        fileUrl: 'https://owasp.org/www-project-internet-of-things/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'iot-7',
+        title: 'Smart Home Automation',
+        description: 'Build home automation systems',
+        type: 'video',
+        contentType: 'Projects',
+        fileUrl: 'https://www.youtube.com/watch?v=3QRlvDvNa1c',
+        size: '520 MB'
+      }
+    ]
+  },
+  {
+    id: 'ar-vr',
+    title: 'AR/VR Development',
+    description: 'Create immersive augmented and virtual reality experiences',
+    icon: '🥽',
+    color: 'from-indigo-500 to-violet-500',
+    resources: [
+      {
+        id: 'arvr-1',
+        title: 'AR/VR Fundamentals',
+        description: 'Introduction to immersive technologies',
+        type: 'article',
+        contentType: 'XR Basics',
+        fileUrl: 'https://learn.unity.com/pathway/vr-development',
+        size: '3.1 MB'
+      },
+      {
+        id: 'arvr-2',
+        title: 'Unity VR Development',
+        description: 'Build VR experiences with Unity',
+        type: 'video',
+        contentType: 'VR Development',
+        fileUrl: 'https://www.youtube.com/watch?v=HhtTtvBF5bI',
+        size: '720 MB'
+      },
+      {
+        id: 'arvr-3',
+        title: 'ARCore for Android',
+        description: 'Build AR apps for Android devices',
+        type: 'article',
+        contentType: 'AR Development',
+        fileUrl: 'https://developers.google.com/ar/develop',
+        size: '2.9 MB'
+      },
+      {
+        id: 'arvr-4',
+        title: 'ARKit for iOS',
+        description: 'Create AR experiences for Apple devices',
+        type: 'video',
+        contentType: 'AR Development',
+        fileUrl: 'https://www.youtube.com/watch?v=7t2KWFEJ3Eg',
+        size: '580 MB'
+      },
+      {
+        id: 'arvr-5',
+        title: '3D Modeling for XR',
+        description: 'Create 3D assets for immersive experiences',
+        type: 'video',
+        contentType: 'Asset Creation',
+        fileUrl: 'https://www.youtube.com/watch?v=JYj6e-72RDs',
+        size: '640 MB'
+      },
+      {
+        id: 'arvr-6',
+        title: 'WebXR Development',
+        description: 'Build XR experiences for the web',
+        type: 'article',
+        contentType: 'Web XR',
+        fileUrl: 'https://immersiveweb.dev/',
+        size: '2.5 MB'
+      }
+    ]
+  },
+  {
+    id: 'robotics',
+    title: 'Robotics & Automation',
+    description: 'Design and program robots and automated systems',
+    icon: '🤖',
+    color: 'from-zinc-500 to-slate-600',
+    resources: [
+      {
+        id: 'robot-1',
+        title: 'Robotics Fundamentals',
+        description: 'Introduction to robotics principles',
+        type: 'article',
+        contentType: 'Robotics Basics',
+        fileUrl: 'https://robotics.mit.edu/',
+        size: '3.4 MB'
+      },
+      {
+        id: 'robot-2',
+        title: 'ROS (Robot Operating System)',
+        description: 'Learn the standard robotics framework',
+        type: 'video',
+        contentType: 'ROS',
+        fileUrl: 'https://www.youtube.com/watch?v=9U6GDonGFHw',
+        size: '680 MB'
+      },
+      {
+        id: 'robot-3',
+        title: 'Computer Vision for Robots',
+        description: 'Enable robots to see and understand',
+        type: 'video',
+        contentType: 'Perception',
+        fileUrl: 'https://www.youtube.com/watch?v=oXlwWbU8l2o',
+        size: '590 MB'
+      },
+      {
+        id: 'robot-4',
+        title: 'Motion Planning and Control',
+        description: 'Program robot movements and paths',
+        type: 'article',
+        contentType: 'Control Systems',
+        fileUrl: 'https://motion.cs.illinois.edu/RoboticSystems/',
+        size: '4.1 MB'
+      },
+      {
+        id: 'robot-5',
+        title: 'Industrial Automation',
+        description: 'Manufacturing and process automation',
+        type: 'video',
+        contentType: 'Industrial',
+        fileUrl: 'https://www.youtube.com/watch?v=Oo3mYKu9MBI',
+        size: '520 MB'
+      },
+      {
+        id: 'robot-6',
+        title: 'Drone Programming',
+        description: 'Build and program autonomous drones',
+        type: 'video',
+        contentType: 'Aerial Robotics',
+        fileUrl: 'https://www.youtube.com/watch?v=b0qGrLd-xh4',
+        size: '610 MB'
+      }
+    ]
+  },
+  {
+    id: 'quantum-computing',
+    title: 'Quantum Computing',
+    description: 'Explore quantum algorithms and quantum programming',
+    icon: '⚛️',
+    color: 'from-purple-600 to-blue-600',
+    resources: [
+      {
+        id: 'qc-1',
+        title: 'Quantum Computing Basics',
+        description: 'Introduction to quantum mechanics for computing',
+        type: 'article',
+        contentType: 'Quantum Fundamentals',
+        fileUrl: 'https://quantum-computing.ibm.com/composer/docs/iqx/guide/',
+        size: '3.8 MB'
+      },
+      {
+        id: 'qc-2',
+        title: 'Qiskit Programming',
+        description: 'Program quantum computers with IBM Qiskit',
+        type: 'video',
+        contentType: 'Quantum Programming',
+        fileUrl: 'https://www.youtube.com/watch?v=L4jYKGrxKRE',
+        size: '580 MB'
+      },
+      {
+        id: 'qc-3',
+        title: 'Quantum Algorithms',
+        description: 'Learn Shors, Grovers, and other algorithms',
+        type: 'article',
+        contentType: 'Algorithms',
+        fileUrl: 'https://qiskit.org/textbook/ch-algorithms/index.html',
+        size: '4.2 MB'
+      },
+      {
+        id: 'qc-4',
+        title: 'Quantum Machine Learning',
+        description: 'Combine quantum computing with ML',
+        type: 'video',
+        contentType: 'Quantum ML',
+        fileUrl: 'https://www.youtube.com/watch?v=jQB4g93EqbI',
+        size: '640 MB'
+      },
+      {
+        id: 'qc-5',
+        title: 'Quantum Cryptography',
+        description: 'Secure communications using quantum principles',
+        type: 'article',
+        contentType: 'Quantum Security',
+        fileUrl: 'https://www.nature.com/subjects/quantum-cryptography',
+        size: '3.1 MB'
+      }
+    ]
+  },
+  {
+    id: 'technical-writing',
+    title: 'Technical Writing',
+    description: 'Create clear documentation and technical content',
+    icon: '📝',
+    color: 'from-teal-500 to-emerald-500',
+    resources: [
+      {
+        id: 'tw-1',
+        title: 'Technical Writing Fundamentals',
+        description: 'Principles of effective technical communication',
+        type: 'article',
+        contentType: 'Writing Basics',
+        fileUrl: 'https://developers.google.com/tech-writing',
+        size: '2.6 MB'
+      },
+      {
+        id: 'tw-2',
+        title: 'API Documentation',
+        description: 'Write clear API docs and references',
+        type: 'video',
+        contentType: 'API Docs',
+        fileUrl: 'https://www.youtube.com/watch?v=3oLN4E5hb7s',
+        size: '420 MB'
+      },
+      {
+        id: 'tw-3',
+        title: 'Documentation Tools',
+        description: 'Learn tools like GitBook, ReadTheDocs, and MkDocs',
+        type: 'article',
+        contentType: 'Tools',
+        fileUrl: 'https://www.writethedocs.org/guide/tools/',
+        size: '2.3 MB'
+      },
+      {
+        id: 'tw-4',
+        title: 'Style Guides for Tech Writers',
+        description: 'Follow industry-standard writing guidelines',
+        type: 'article',
+        contentType: 'Style Guidelines',
+        fileUrl: 'https://developers.google.com/style',
+        size: '3.4 MB'
+      },
+      {
+        id: 'tw-5',
+        title: 'Creating User Manuals',
+        description: 'Write user-friendly product documentation',
+        type: 'video',
+        contentType: 'User Documentation',
+        fileUrl: 'https://www.youtube.com/watch?v=X4tmG6pxJxQ',
+        size: '380 MB'
       }
     ]
   }

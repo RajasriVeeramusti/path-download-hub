@@ -4,6 +4,7 @@ import { FileText, Play, BookOpen, Terminal, ExternalLink, ArrowUpRight } from "
 
 interface ResourceCardProps {
   resource: Resource;
+  onVideoClick?: (resource: Resource) => void;
 }
 
 const getIcon = (type: Resource['type']) => {
@@ -74,22 +75,57 @@ const getTypeStyles = (type: Resource['type']) => {
   }
 };
 
-export const ResourceCard = ({ resource }: ResourceCardProps) => {
+export const ResourceCard = ({ resource, onVideoClick }: ResourceCardProps) => {
   const styles = getTypeStyles(resource.type);
+  const isVideo = resource.type === 'video';
+  
+  const handleClick = (e: React.MouseEvent) => {
+    if (isVideo && onVideoClick) {
+      e.preventDefault();
+      onVideoClick(resource);
+    }
+  };
+
+  const CardWrapper = ({ children }: { children: React.ReactNode }) => {
+    if (isVideo && onVideoClick) {
+      return (
+        <div 
+          onClick={handleClick}
+          className="block h-full group cursor-pointer"
+        >
+          {children}
+        </div>
+      );
+    }
+    return (
+      <a 
+        href={resource.fileUrl} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="block h-full group"
+      >
+        {children}
+      </a>
+    );
+  };
   
   return (
-    <a 
-      href={resource.fileUrl} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="block h-full group"
-    >
+    <CardWrapper>
       <Card className={`glass glass-hover h-full flex flex-col overflow-hidden relative cursor-pointer hover:shadow-2xl ${styles.glow} transition-all duration-500`}>
         {/* Animated top accent */}
         <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${styles.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
         
         {/* Corner decoration */}
         <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${styles.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500 rounded-bl-full`} />
+        
+        {/* Video play overlay for video type */}
+        {isVideo && (
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none">
+            <div className="p-4 rounded-full bg-violet-500/90 text-white shadow-2xl shadow-violet-500/50 animate-pulse">
+              <Play className="h-8 w-8 fill-current" />
+            </div>
+          </div>
+        )}
         
         <CardHeader className="pb-3 sm:pb-4">
           <div className="flex items-start justify-between gap-3">
@@ -116,12 +152,16 @@ export const ResourceCard = ({ resource }: ResourceCardProps) => {
               {getTypeLabel(resource.type)}
             </span>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground group-hover:text-primary transition-colors duration-300">
-              <span className="font-medium">Open</span>
-              <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+              <span className="font-medium">{isVideo ? 'Watch' : 'Open'}</span>
+              {isVideo ? (
+                <Play className="h-3 w-3 fill-current" />
+              ) : (
+                <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+              )}
             </div>
           </div>
         </CardContent>
       </Card>
-    </a>
+    </CardWrapper>
   );
 };
