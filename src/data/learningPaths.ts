@@ -2474,5 +2474,1265 @@ export const learningPaths: LearningPath[] = [
         size: '1.6 MB'
       }
     ]
+  },
+  {
+    id: 'computer-architecture',
+    title: 'Computer Architecture',
+    description: 'Learn CPU design, memory hierarchy, and processor organization',
+    icon: '🖥️',
+    color: 'from-slate-500 to-zinc-600',
+    resources: [
+      {
+        id: 'ca-1',
+        title: 'Computer Organization Basics',
+        description: 'Understanding computer hardware organization',
+        type: 'video',
+        contentType: 'Fundamentals',
+        fileUrl: 'https://www.youtube.com/watch?v=L1ung0wil9Y',
+        size: '580 MB'
+      },
+      {
+        id: 'ca-2',
+        title: 'CPU Architecture and Design',
+        description: 'How processors execute instructions',
+        type: 'article',
+        contentType: 'CPU Design',
+        fileUrl: 'https://www.geeksforgeeks.org/computer-organization-and-architecture-tutorials/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'ca-3',
+        title: 'Memory Hierarchy and Cache',
+        description: 'Cache memory, virtual memory concepts',
+        type: 'video',
+        contentType: 'Memory Systems',
+        fileUrl: 'https://www.youtube.com/watch?v=p3q5zWCw8J4',
+        size: '620 MB'
+      },
+      {
+        id: 'ca-4',
+        title: 'Pipelining and Parallel Processing',
+        description: 'Instruction pipelining and hazards',
+        type: 'video',
+        contentType: 'Advanced Topics',
+        fileUrl: 'https://www.youtube.com/watch?v=fzZOyGP0N0M',
+        size: '540 MB'
+      },
+      {
+        id: 'ca-5',
+        title: 'RISC vs CISC Architecture',
+        description: 'Compare instruction set architectures',
+        type: 'article',
+        contentType: 'ISA',
+        fileUrl: 'https://cs.stanford.edu/people/eroberts/courses/soco/projects/risc/risccisc/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'ca-6',
+        title: 'ARM Architecture Deep Dive',
+        description: 'Modern ARM processor architecture',
+        type: 'video',
+        contentType: 'ARM',
+        fileUrl: 'https://www.youtube.com/watch?v=7LqPJGnBPMM',
+        size: '480 MB'
+      }
+    ]
+  },
+  {
+    id: 'operating-systems',
+    title: 'Operating Systems',
+    description: 'Master process management, memory, file systems, and OS concepts',
+    icon: '⚙️',
+    color: 'from-emerald-600 to-green-700',
+    resources: [
+      {
+        id: 'os-1',
+        title: 'Operating Systems Introduction',
+        description: 'Core concepts of operating systems',
+        type: 'video',
+        contentType: 'OS Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=vBURTt97EkA',
+        size: '720 MB'
+      },
+      {
+        id: 'os-2',
+        title: 'Process Management',
+        description: 'Process scheduling, creation, and synchronization',
+        type: 'article',
+        contentType: 'Processes',
+        fileUrl: 'https://www.geeksforgeeks.org/introduction-of-process-management/',
+        size: '3.5 MB'
+      },
+      {
+        id: 'os-3',
+        title: 'Memory Management Techniques',
+        description: 'Paging, segmentation, and virtual memory',
+        type: 'video',
+        contentType: 'Memory',
+        fileUrl: 'https://www.youtube.com/watch?v=qdkxXygc3rE',
+        size: '580 MB'
+      },
+      {
+        id: 'os-4',
+        title: 'File Systems and Storage',
+        description: 'File system implementation and disk scheduling',
+        type: 'article',
+        contentType: 'File Systems',
+        fileUrl: 'https://www.geeksforgeeks.org/file-systems-in-operating-system/',
+        size: '2.9 MB'
+      },
+      {
+        id: 'os-5',
+        title: 'Deadlock Detection and Prevention',
+        description: 'Handle deadlocks in multi-process systems',
+        type: 'video',
+        contentType: 'Deadlocks',
+        fileUrl: 'https://www.youtube.com/watch?v=UVo9mGARkhQ',
+        size: '420 MB'
+      },
+      {
+        id: 'os-6',
+        title: 'Linux Kernel Internals',
+        description: 'Deep dive into Linux kernel',
+        type: 'video',
+        contentType: 'Linux',
+        fileUrl: 'https://www.youtube.com/watch?v=WiZ05pnHZqM',
+        size: '680 MB'
+      },
+      {
+        id: 'os-7',
+        title: 'Inter-Process Communication',
+        description: 'Pipes, shared memory, and message passing',
+        type: 'article',
+        contentType: 'IPC',
+        fileUrl: 'https://www.geeksforgeeks.org/inter-process-communication-ipc/',
+        size: '2.4 MB'
+      }
+    ]
+  },
+  {
+    id: 'database-systems',
+    title: 'Database Management Systems',
+    description: 'Learn RDBMS concepts, SQL, normalization, and database design',
+    icon: '🗄️',
+    color: 'from-blue-600 to-indigo-700',
+    resources: [
+      {
+        id: 'dbms-1',
+        title: 'DBMS Complete Course',
+        description: 'Comprehensive database management concepts',
+        type: 'video',
+        contentType: 'DBMS Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=kBdlM6hNDAE',
+        size: '820 MB'
+      },
+      {
+        id: 'dbms-2',
+        title: 'SQL Masterclass',
+        description: 'Complete SQL from beginner to advanced',
+        type: 'video',
+        contentType: 'SQL',
+        fileUrl: 'https://www.youtube.com/watch?v=HXV3zeQKqGY',
+        size: '740 MB'
+      },
+      {
+        id: 'dbms-3',
+        title: 'Database Normalization',
+        description: '1NF, 2NF, 3NF, BCNF explained',
+        type: 'article',
+        contentType: 'Normalization',
+        fileUrl: 'https://www.geeksforgeeks.org/normal-forms-in-dbms/',
+        size: '2.6 MB'
+      },
+      {
+        id: 'dbms-4',
+        title: 'Transaction Management',
+        description: 'ACID properties and concurrency control',
+        type: 'video',
+        contentType: 'Transactions',
+        fileUrl: 'https://www.youtube.com/watch?v=P80Js_qClUE',
+        size: '480 MB'
+      },
+      {
+        id: 'dbms-5',
+        title: 'Indexing and Query Optimization',
+        description: 'B-trees, hashing, and performance tuning',
+        type: 'article',
+        contentType: 'Optimization',
+        fileUrl: 'https://use-the-index-luke.com/',
+        size: '3.8 MB'
+      },
+      {
+        id: 'dbms-6',
+        title: 'ER Diagrams and Schema Design',
+        description: 'Entity-relationship modeling',
+        type: 'article',
+        contentType: 'Design',
+        fileUrl: 'https://www.lucidchart.com/pages/er-diagrams',
+        size: '2.2 MB'
+      },
+      {
+        id: 'dbms-7',
+        title: 'NoSQL Databases Overview',
+        description: 'MongoDB, Redis, Cassandra concepts',
+        type: 'video',
+        contentType: 'NoSQL',
+        fileUrl: 'https://www.youtube.com/watch?v=xQnIN9bW0og',
+        size: '560 MB'
+      }
+    ]
+  },
+  {
+    id: 'compiler-design',
+    title: 'Compiler Design',
+    description: 'Build compilers: lexical analysis, parsing, code generation',
+    icon: '🔄',
+    color: 'from-purple-600 to-violet-700',
+    resources: [
+      {
+        id: 'cd-1',
+        title: 'Compiler Design Introduction',
+        description: 'Phases of compilation process',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=Qkwj65l_96I',
+        size: '620 MB'
+      },
+      {
+        id: 'cd-2',
+        title: 'Lexical Analysis',
+        description: 'Tokenization and regular expressions',
+        type: 'article',
+        contentType: 'Lexer',
+        fileUrl: 'https://www.geeksforgeeks.org/introduction-of-lexical-analysis/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'cd-3',
+        title: 'Syntax Analysis and Parsing',
+        description: 'Top-down and bottom-up parsing',
+        type: 'video',
+        contentType: 'Parsing',
+        fileUrl: 'https://www.youtube.com/watch?v=SH5F-rwWEog',
+        size: '540 MB'
+      },
+      {
+        id: 'cd-4',
+        title: 'Semantic Analysis',
+        description: 'Type checking and symbol tables',
+        type: 'article',
+        contentType: 'Semantics',
+        fileUrl: 'https://www.geeksforgeeks.org/semantic-analysis-in-compiler-design/',
+        size: '2.4 MB'
+      },
+      {
+        id: 'cd-5',
+        title: 'Intermediate Code Generation',
+        description: 'Three-address code and DAGs',
+        type: 'video',
+        contentType: 'Code Gen',
+        fileUrl: 'https://www.youtube.com/watch?v=Ck3PyeFNlV4',
+        size: '480 MB'
+      },
+      {
+        id: 'cd-6',
+        title: 'Code Optimization Techniques',
+        description: 'Loop optimization, dead code elimination',
+        type: 'article',
+        contentType: 'Optimization',
+        fileUrl: 'https://www.geeksforgeeks.org/code-optimization-in-compiler-design/',
+        size: '3.1 MB'
+      }
+    ]
+  },
+  {
+    id: 'digital-electronics',
+    title: 'Digital Electronics',
+    description: 'Logic gates, flip-flops, counters, and digital circuit design',
+    icon: '🔌',
+    color: 'from-yellow-500 to-amber-600',
+    resources: [
+      {
+        id: 'de-1',
+        title: 'Digital Logic Fundamentals',
+        description: 'Boolean algebra and logic gates',
+        type: 'video',
+        contentType: 'Logic Gates',
+        fileUrl: 'https://www.youtube.com/watch?v=M0mx8S05v60',
+        size: '580 MB'
+      },
+      {
+        id: 'de-2',
+        title: 'Combinational Circuits',
+        description: 'Multiplexers, decoders, and adders',
+        type: 'article',
+        contentType: 'Combinational',
+        fileUrl: 'https://www.geeksforgeeks.org/combinational-circuits/',
+        size: '2.9 MB'
+      },
+      {
+        id: 'de-3',
+        title: 'Sequential Circuits',
+        description: 'Flip-flops, registers, and counters',
+        type: 'video',
+        contentType: 'Sequential',
+        fileUrl: 'https://www.youtube.com/watch?v=YW-_GkUguMM',
+        size: '620 MB'
+      },
+      {
+        id: 'de-4',
+        title: 'K-Map Simplification',
+        description: 'Karnaugh maps for Boolean minimization',
+        type: 'article',
+        contentType: 'Minimization',
+        fileUrl: 'https://www.geeksforgeeks.org/introduction-of-k-map/',
+        size: '2.2 MB'
+      },
+      {
+        id: 'de-5',
+        title: 'FPGA and Verilog Basics',
+        description: 'Hardware description languages',
+        type: 'video',
+        contentType: 'HDL',
+        fileUrl: 'https://www.youtube.com/watch?v=Vpd5s-O8ZJk',
+        size: '540 MB'
+      },
+      {
+        id: 'de-6',
+        title: 'Microprocessor 8085 Architecture',
+        description: 'Classic microprocessor programming',
+        type: 'video',
+        contentType: 'Microprocessor',
+        fileUrl: 'https://www.youtube.com/watch?v=uLY5E1jv4sU',
+        size: '680 MB'
+      }
+    ]
+  },
+  {
+    id: 'control-systems',
+    title: 'Control Systems',
+    description: 'Learn feedback systems, stability analysis, and controllers',
+    icon: '🎛️',
+    color: 'from-red-500 to-rose-600',
+    resources: [
+      {
+        id: 'cs-1',
+        title: 'Control Systems Introduction',
+        description: 'Open and closed loop systems',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=oBc_BHxw78s',
+        size: '520 MB'
+      },
+      {
+        id: 'cs-2',
+        title: 'Transfer Functions',
+        description: 'Laplace transforms in control systems',
+        type: 'article',
+        contentType: 'Math',
+        fileUrl: 'https://www.electrical4u.com/transfer-function/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'cs-3',
+        title: 'Stability Analysis',
+        description: 'Routh-Hurwitz and Nyquist criteria',
+        type: 'video',
+        contentType: 'Stability',
+        fileUrl: 'https://www.youtube.com/watch?v=WBCZBOB3LCA',
+        size: '580 MB'
+      },
+      {
+        id: 'cs-4',
+        title: 'PID Controller Design',
+        description: 'Proportional-Integral-Derivative controllers',
+        type: 'video',
+        contentType: 'Controllers',
+        fileUrl: 'https://www.youtube.com/watch?v=wkfEZmsQqiA',
+        size: '460 MB'
+      },
+      {
+        id: 'cs-5',
+        title: 'Root Locus Method',
+        description: 'Graphical analysis of system stability',
+        type: 'article',
+        contentType: 'Analysis',
+        fileUrl: 'https://www.geeksforgeeks.org/root-locus-in-control-system/',
+        size: '2.4 MB'
+      },
+      {
+        id: 'cs-6',
+        title: 'State Space Analysis',
+        description: 'Modern control system representation',
+        type: 'video',
+        contentType: 'State Space',
+        fileUrl: 'https://www.youtube.com/watch?v=hpeKrMG-WP0',
+        size: '620 MB'
+      }
+    ]
+  },
+  {
+    id: 'signals-systems',
+    title: 'Signals and Systems',
+    description: 'Signal processing, Fourier transforms, and system analysis',
+    icon: '📶',
+    color: 'from-teal-500 to-cyan-600',
+    resources: [
+      {
+        id: 'ss-1',
+        title: 'Signals and Systems Basics',
+        description: 'Types of signals and systems',
+        type: 'video',
+        contentType: 'Fundamentals',
+        fileUrl: 'https://www.youtube.com/watch?v=s8rsR_TStaA',
+        size: '680 MB'
+      },
+      {
+        id: 'ss-2',
+        title: 'Fourier Series and Transform',
+        description: 'Frequency domain analysis',
+        type: 'video',
+        contentType: 'Fourier',
+        fileUrl: 'https://www.youtube.com/watch?v=spUNpyF58BY',
+        size: '720 MB'
+      },
+      {
+        id: 'ss-3',
+        title: 'Laplace Transform',
+        description: 'S-domain analysis techniques',
+        type: 'article',
+        contentType: 'Laplace',
+        fileUrl: 'https://www.geeksforgeeks.org/laplace-transform/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'ss-4',
+        title: 'Z-Transform',
+        description: 'Discrete-time signal analysis',
+        type: 'video',
+        contentType: 'Z-Transform',
+        fileUrl: 'https://www.youtube.com/watch?v=XJRW6jamUHk',
+        size: '540 MB'
+      },
+      {
+        id: 'ss-5',
+        title: 'Convolution and Correlation',
+        description: 'Signal operations and filtering',
+        type: 'article',
+        contentType: 'Operations',
+        fileUrl: 'https://www.geeksforgeeks.org/convolution-and-correlation/',
+        size: '2.6 MB'
+      },
+      {
+        id: 'ss-6',
+        title: 'Sampling and Aliasing',
+        description: 'Nyquist theorem and reconstruction',
+        type: 'video',
+        contentType: 'Sampling',
+        fileUrl: 'https://www.youtube.com/watch?v=yWqrx08UeUs',
+        size: '480 MB'
+      }
+    ]
+  },
+  {
+    id: 'data-structures',
+    title: 'Data Structures & Algorithms',
+    description: 'Master arrays, trees, graphs, sorting, and algorithm design',
+    icon: '🌲',
+    color: 'from-green-500 to-emerald-600',
+    resources: [
+      {
+        id: 'dsa-1',
+        title: 'DSA Complete Course',
+        description: 'Comprehensive data structures course',
+        type: 'video',
+        contentType: 'Complete Course',
+        fileUrl: 'https://www.youtube.com/watch?v=8hly31xKli0',
+        size: '1200 MB'
+      },
+      {
+        id: 'dsa-2',
+        title: 'Arrays and Linked Lists',
+        description: 'Linear data structures fundamentals',
+        type: 'article',
+        contentType: 'Linear DS',
+        fileUrl: 'https://www.geeksforgeeks.org/data-structures/',
+        size: '3.8 MB'
+      },
+      {
+        id: 'dsa-3',
+        title: 'Trees and Binary Search Trees',
+        description: 'Hierarchical data structures',
+        type: 'video',
+        contentType: 'Trees',
+        fileUrl: 'https://www.youtube.com/watch?v=fAAZixBzIAI',
+        size: '580 MB'
+      },
+      {
+        id: 'dsa-4',
+        title: 'Graph Algorithms',
+        description: 'BFS, DFS, shortest path algorithms',
+        type: 'video',
+        contentType: 'Graphs',
+        fileUrl: 'https://www.youtube.com/watch?v=tWVWeAqZ0WU',
+        size: '720 MB'
+      },
+      {
+        id: 'dsa-5',
+        title: 'Sorting and Searching',
+        description: 'Quick sort, merge sort, binary search',
+        type: 'article',
+        contentType: 'Algorithms',
+        fileUrl: 'https://www.geeksforgeeks.org/sorting-algorithms/',
+        size: '2.9 MB'
+      },
+      {
+        id: 'dsa-6',
+        title: 'Dynamic Programming',
+        description: 'Optimization techniques and patterns',
+        type: 'video',
+        contentType: 'DP',
+        fileUrl: 'https://www.youtube.com/watch?v=oBt53YbR9Kk',
+        size: '850 MB'
+      },
+      {
+        id: 'dsa-7',
+        title: 'Competitive Programming Guide',
+        description: 'Problem solving strategies',
+        type: 'article',
+        contentType: 'CP',
+        fileUrl: 'https://cp-algorithms.com/',
+        size: '4.2 MB'
+      }
+    ]
+  },
+  {
+    id: 'computer-networks',
+    title: 'Computer Networks',
+    description: 'Learn OSI model, TCP/IP, routing, and network protocols',
+    icon: '🌐',
+    color: 'from-sky-500 to-blue-600',
+    resources: [
+      {
+        id: 'cn-1',
+        title: 'Computer Networks Full Course',
+        description: 'Complete networking fundamentals',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=IPvYjXCsTg8',
+        size: '780 MB'
+      },
+      {
+        id: 'cn-2',
+        title: 'OSI Model Explained',
+        description: 'Seven layers of networking',
+        type: 'article',
+        contentType: 'OSI Model',
+        fileUrl: 'https://www.geeksforgeeks.org/osi-model/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'cn-3',
+        title: 'TCP/IP Protocol Suite',
+        description: 'Internet protocol stack',
+        type: 'video',
+        contentType: 'TCP/IP',
+        fileUrl: 'https://www.youtube.com/watch?v=2QGgEk20RXM',
+        size: '620 MB'
+      },
+      {
+        id: 'cn-4',
+        title: 'IP Addressing and Subnetting',
+        description: 'IPv4, IPv6, and subnet calculations',
+        type: 'video',
+        contentType: 'IP Addressing',
+        fileUrl: 'https://www.youtube.com/watch?v=ecCuyq-Wprc',
+        size: '540 MB'
+      },
+      {
+        id: 'cn-5',
+        title: 'Routing Algorithms',
+        description: 'Distance vector and link state routing',
+        type: 'article',
+        contentType: 'Routing',
+        fileUrl: 'https://www.geeksforgeeks.org/routing-algorithms-in-computer-network/',
+        size: '3.1 MB'
+      },
+      {
+        id: 'cn-6',
+        title: 'Network Security Basics',
+        description: 'Firewalls, encryption, and VPN',
+        type: 'video',
+        contentType: 'Security',
+        fileUrl: 'https://www.youtube.com/watch?v=JIhZWgJA-9o',
+        size: '480 MB'
+      },
+      {
+        id: 'cn-7',
+        title: 'Socket Programming',
+        description: 'Network programming with sockets',
+        type: 'article',
+        contentType: 'Programming',
+        fileUrl: 'https://www.geeksforgeeks.org/socket-programming-cc/',
+        size: '2.4 MB'
+      }
+    ]
+  },
+  {
+    id: 'software-engineering',
+    title: 'Software Engineering',
+    description: 'SDLC, design patterns, testing, and project management',
+    icon: '📐',
+    color: 'from-indigo-500 to-purple-600',
+    resources: [
+      {
+        id: 'se-1',
+        title: 'Software Engineering Complete',
+        description: 'SDLC models and methodologies',
+        type: 'video',
+        contentType: 'SDLC',
+        fileUrl: 'https://www.youtube.com/watch?v=uJpQXnMJVRM',
+        size: '680 MB'
+      },
+      {
+        id: 'se-2',
+        title: 'Agile and Scrum Guide',
+        description: 'Modern project management',
+        type: 'article',
+        contentType: 'Agile',
+        fileUrl: 'https://www.atlassian.com/agile',
+        size: '3.4 MB'
+      },
+      {
+        id: 'se-3',
+        title: 'Design Patterns in Practice',
+        description: 'Gang of Four patterns explained',
+        type: 'video',
+        contentType: 'Design Patterns',
+        fileUrl: 'https://www.youtube.com/watch?v=tv-_1er1mWI',
+        size: '720 MB'
+      },
+      {
+        id: 'se-4',
+        title: 'UML Diagrams Tutorial',
+        description: 'Class, sequence, and use case diagrams',
+        type: 'article',
+        contentType: 'UML',
+        fileUrl: 'https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'se-5',
+        title: 'Software Testing Fundamentals',
+        description: 'Unit, integration, and system testing',
+        type: 'video',
+        contentType: 'Testing',
+        fileUrl: 'https://www.youtube.com/watch?v=u6QfIXgjwGQ',
+        size: '540 MB'
+      },
+      {
+        id: 'se-6',
+        title: 'Clean Code Principles',
+        description: 'Write maintainable software',
+        type: 'article',
+        contentType: 'Best Practices',
+        fileUrl: 'https://www.freecodecamp.org/news/clean-coding-for-beginners/',
+        size: '2.6 MB'
+      },
+      {
+        id: 'se-7',
+        title: 'Git Version Control',
+        description: 'Master Git and GitHub workflows',
+        type: 'video',
+        contentType: 'Version Control',
+        fileUrl: 'https://www.youtube.com/watch?v=RGOj5yH7evk',
+        size: '480 MB'
+      }
+    ]
+  },
+  {
+    id: 'theory-computation',
+    title: 'Theory of Computation',
+    description: 'Automata theory, formal languages, and computability',
+    icon: '🔢',
+    color: 'from-fuchsia-500 to-pink-600',
+    resources: [
+      {
+        id: 'toc-1',
+        title: 'Theory of Computation Full Course',
+        description: 'Complete TOC for GATE/interviews',
+        type: 'video',
+        contentType: 'Complete Course',
+        fileUrl: 'https://www.youtube.com/watch?v=58N2N7zJGrQ',
+        size: '920 MB'
+      },
+      {
+        id: 'toc-2',
+        title: 'Finite Automata',
+        description: 'DFA, NFA, and equivalence',
+        type: 'article',
+        contentType: 'Automata',
+        fileUrl: 'https://www.geeksforgeeks.org/introduction-of-finite-automata/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'toc-3',
+        title: 'Regular Expressions',
+        description: 'Patterns and regex operations',
+        type: 'video',
+        contentType: 'Regex',
+        fileUrl: 'https://www.youtube.com/watch?v=rhzKDrUiJVk',
+        size: '420 MB'
+      },
+      {
+        id: 'toc-4',
+        title: 'Context-Free Grammars',
+        description: 'CFG, parse trees, and ambiguity',
+        type: 'article',
+        contentType: 'CFG',
+        fileUrl: 'https://www.geeksforgeeks.org/introduction-to-context-free-grammar/',
+        size: '2.4 MB'
+      },
+      {
+        id: 'toc-5',
+        title: 'Pushdown Automata',
+        description: 'Stack-based automata theory',
+        type: 'video',
+        contentType: 'PDA',
+        fileUrl: 'https://www.youtube.com/watch?v=eY7fwj5jvC4',
+        size: '480 MB'
+      },
+      {
+        id: 'toc-6',
+        title: 'Turing Machines',
+        description: 'Universal computation model',
+        type: 'article',
+        contentType: 'Turing Machine',
+        fileUrl: 'https://www.geeksforgeeks.org/turing-machine/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'toc-7',
+        title: 'Decidability and Halting Problem',
+        description: 'Limits of computation',
+        type: 'video',
+        contentType: 'Decidability',
+        fileUrl: 'https://www.youtube.com/watch?v=92WHN-pAFCs',
+        size: '380 MB'
+      }
+    ]
+  },
+  {
+    id: 'discrete-mathematics',
+    title: 'Discrete Mathematics',
+    description: 'Set theory, logic, combinatorics, and graph theory',
+    icon: '🔣',
+    color: 'from-orange-500 to-red-500',
+    resources: [
+      {
+        id: 'dm-1',
+        title: 'Discrete Math Full Course',
+        description: 'Complete discrete mathematics',
+        type: 'video',
+        contentType: 'Complete Course',
+        fileUrl: 'https://www.youtube.com/watch?v=rdXw7Ps9vxc',
+        size: '880 MB'
+      },
+      {
+        id: 'dm-2',
+        title: 'Set Theory and Logic',
+        description: 'Propositional and predicate logic',
+        type: 'article',
+        contentType: 'Logic',
+        fileUrl: 'https://www.geeksforgeeks.org/set-theory/',
+        size: '3.1 MB'
+      },
+      {
+        id: 'dm-3',
+        title: 'Combinatorics and Counting',
+        description: 'Permutations and combinations',
+        type: 'video',
+        contentType: 'Combinatorics',
+        fileUrl: 'https://www.youtube.com/watch?v=8RRo6Ti9d0U',
+        size: '520 MB'
+      },
+      {
+        id: 'dm-4',
+        title: 'Graph Theory Basics',
+        description: 'Graphs, trees, and connectivity',
+        type: 'article',
+        contentType: 'Graphs',
+        fileUrl: 'https://www.geeksforgeeks.org/graph-and-its-representations/',
+        size: '2.6 MB'
+      },
+      {
+        id: 'dm-5',
+        title: 'Relations and Functions',
+        description: 'Equivalence and partial orders',
+        type: 'video',
+        contentType: 'Relations',
+        fileUrl: 'https://www.youtube.com/watch?v=ouipbDkwHWA',
+        size: '480 MB'
+      },
+      {
+        id: 'dm-6',
+        title: 'Mathematical Induction',
+        description: 'Proof techniques',
+        type: 'article',
+        contentType: 'Proofs',
+        fileUrl: 'https://www.mathsisfun.com/algebra/mathematical-induction.html',
+        size: '1.8 MB'
+      }
+    ]
+  },
+  {
+    id: 'engineering-mathematics',
+    title: 'Engineering Mathematics',
+    description: 'Calculus, linear algebra, differential equations, and probability',
+    icon: '📊',
+    color: 'from-lime-500 to-green-600',
+    resources: [
+      {
+        id: 'em-1',
+        title: 'Engineering Math Complete',
+        description: 'All math topics for engineers',
+        type: 'video',
+        contentType: 'Complete Course',
+        fileUrl: 'https://www.youtube.com/watch?v=WUvTyaaNkzM',
+        size: '980 MB'
+      },
+      {
+        id: 'em-2',
+        title: 'Linear Algebra Essentials',
+        description: 'Matrices, vectors, and eigenvalues',
+        type: 'video',
+        contentType: 'Linear Algebra',
+        fileUrl: 'https://www.youtube.com/watch?v=fNk_zzaMoSs',
+        size: '720 MB'
+      },
+      {
+        id: 'em-3',
+        title: 'Differential Equations',
+        description: 'ODEs and PDEs for engineers',
+        type: 'article',
+        contentType: 'Diff Equations',
+        fileUrl: 'https://www.mathsisfun.com/calculus/differential-equations.html',
+        size: '3.4 MB'
+      },
+      {
+        id: 'em-4',
+        title: 'Probability and Statistics',
+        description: 'Random variables and distributions',
+        type: 'video',
+        contentType: 'Probability',
+        fileUrl: 'https://www.youtube.com/watch?v=xxpc-HPKN28',
+        size: '640 MB'
+      },
+      {
+        id: 'em-5',
+        title: 'Multivariable Calculus',
+        description: 'Partial derivatives and integrals',
+        type: 'video',
+        contentType: 'Calculus',
+        fileUrl: 'https://www.youtube.com/watch?v=TrcCbdWwCBc',
+        size: '580 MB'
+      },
+      {
+        id: 'em-6',
+        title: 'Complex Analysis',
+        description: 'Complex numbers and functions',
+        type: 'article',
+        contentType: 'Complex',
+        fileUrl: 'https://www.geeksforgeeks.org/complex-analysis/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'em-7',
+        title: 'Numerical Methods',
+        description: 'Computational techniques',
+        type: 'video',
+        contentType: 'Numerical',
+        fileUrl: 'https://www.youtube.com/watch?v=656jLdFOaOI',
+        size: '520 MB'
+      }
+    ]
+  },
+  {
+    id: 'embedded-programming',
+    title: 'Embedded C Programming',
+    description: 'Microcontroller programming, Arduino, and embedded systems',
+    icon: '🔧',
+    color: 'from-zinc-500 to-slate-600',
+    resources: [
+      {
+        id: 'ec-1',
+        title: 'Embedded C Complete Course',
+        description: 'Programming for microcontrollers',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=Hffw-m9fuxc',
+        size: '720 MB'
+      },
+      {
+        id: 'ec-2',
+        title: 'Arduino Programming',
+        description: 'Get started with Arduino',
+        type: 'video',
+        contentType: 'Arduino',
+        fileUrl: 'https://www.youtube.com/watch?v=fJWR7dBuc18',
+        size: '580 MB'
+      },
+      {
+        id: 'ec-3',
+        title: 'STM32 Microcontroller',
+        description: 'ARM Cortex programming',
+        type: 'article',
+        contentType: 'STM32',
+        fileUrl: 'https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html',
+        size: '4.2 MB'
+      },
+      {
+        id: 'ec-4',
+        title: 'Raspberry Pi Projects',
+        description: 'IoT and embedded Linux',
+        type: 'video',
+        contentType: 'Raspberry Pi',
+        fileUrl: 'https://www.youtube.com/watch?v=eZ74x6dVYes',
+        size: '640 MB'
+      },
+      {
+        id: 'ec-5',
+        title: 'Real-Time Operating Systems',
+        description: 'FreeRTOS and RTOS concepts',
+        type: 'video',
+        contentType: 'RTOS',
+        fileUrl: 'https://www.youtube.com/watch?v=F321087yYy4',
+        size: '520 MB'
+      },
+      {
+        id: 'ec-6',
+        title: 'I2C, SPI, UART Protocols',
+        description: 'Communication protocols',
+        type: 'article',
+        contentType: 'Protocols',
+        fileUrl: 'https://www.geeksforgeeks.org/i2c-communication-protocol/',
+        size: '2.6 MB'
+      }
+    ]
+  },
+  {
+    id: 'vlsi-design',
+    title: 'VLSI Design',
+    description: 'Integrated circuit design, CMOS, and chip fabrication',
+    icon: '🔬',
+    color: 'from-violet-500 to-purple-600',
+    resources: [
+      {
+        id: 'vlsi-1',
+        title: 'VLSI Design Fundamentals',
+        description: 'Introduction to IC design',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=Hi7rK0hZnfc',
+        size: '680 MB'
+      },
+      {
+        id: 'vlsi-2',
+        title: 'CMOS Technology',
+        description: 'CMOS transistors and logic',
+        type: 'article',
+        contentType: 'CMOS',
+        fileUrl: 'https://www.geeksforgeeks.org/cmos-logic-gate/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'vlsi-3',
+        title: 'Verilog HDL Programming',
+        description: 'Hardware description language',
+        type: 'video',
+        contentType: 'Verilog',
+        fileUrl: 'https://www.youtube.com/watch?v=Vpd5s-O8ZJk',
+        size: '620 MB'
+      },
+      {
+        id: 'vlsi-4',
+        title: 'VHDL Essentials',
+        description: 'Another HDL for IC design',
+        type: 'article',
+        contentType: 'VHDL',
+        fileUrl: 'https://www.nandland.com/vhdl/tutorials/index.html',
+        size: '2.8 MB'
+      },
+      {
+        id: 'vlsi-5',
+        title: 'ASIC Design Flow',
+        description: 'RTL to GDSII process',
+        type: 'video',
+        contentType: 'ASIC',
+        fileUrl: 'https://www.youtube.com/watch?v=0Aw_d7HAhxM',
+        size: '540 MB'
+      },
+      {
+        id: 'vlsi-6',
+        title: 'Physical Design Concepts',
+        description: 'Placement, routing, and timing',
+        type: 'article',
+        contentType: 'Physical Design',
+        fileUrl: 'https://www.vlsi-expert.com/p/physical-design.html',
+        size: '3.6 MB'
+      }
+    ]
+  },
+  {
+    id: 'power-electronics',
+    title: 'Power Electronics',
+    description: 'Converters, inverters, and power semiconductor devices',
+    icon: '⚡',
+    color: 'from-yellow-500 to-orange-600',
+    resources: [
+      {
+        id: 'pe-1',
+        title: 'Power Electronics Basics',
+        description: 'Introduction to power conversion',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=lqPeIK8C2Ow',
+        size: '580 MB'
+      },
+      {
+        id: 'pe-2',
+        title: 'Power Semiconductor Devices',
+        description: 'Thyristors, MOSFETs, and IGBTs',
+        type: 'article',
+        contentType: 'Devices',
+        fileUrl: 'https://www.electronics-tutorials.ws/power/power_1.html',
+        size: '2.9 MB'
+      },
+      {
+        id: 'pe-3',
+        title: 'DC-DC Converters',
+        description: 'Buck, boost, and buck-boost',
+        type: 'video',
+        contentType: 'DC-DC',
+        fileUrl: 'https://www.youtube.com/watch?v=wI-KYRdmx-E',
+        size: '620 MB'
+      },
+      {
+        id: 'pe-4',
+        title: 'AC-DC Rectifiers',
+        description: 'Controlled and uncontrolled rectifiers',
+        type: 'article',
+        contentType: 'Rectifiers',
+        fileUrl: 'https://www.electrical4u.com/rectifier/',
+        size: '2.4 MB'
+      },
+      {
+        id: 'pe-5',
+        title: 'Inverters and PWM',
+        description: 'DC to AC conversion',
+        type: 'video',
+        contentType: 'Inverters',
+        fileUrl: 'https://www.youtube.com/watch?v=fwk1qULBvGE',
+        size: '540 MB'
+      },
+      {
+        id: 'pe-6',
+        title: 'Electric Vehicle Power Systems',
+        description: 'Power electronics in EVs',
+        type: 'video',
+        contentType: 'EV',
+        fileUrl: 'https://www.youtube.com/watch?v=3SAxXUIre28',
+        size: '680 MB'
+      }
+    ]
+  },
+  {
+    id: 'mechanics-materials',
+    title: 'Mechanics of Materials',
+    description: 'Stress, strain, and structural analysis for mechanical engineers',
+    icon: '🏗️',
+    color: 'from-stone-500 to-neutral-600',
+    resources: [
+      {
+        id: 'mom-1',
+        title: 'Strength of Materials',
+        description: 'Stress and strain fundamentals',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=RfBzHO2RC3g',
+        size: '720 MB'
+      },
+      {
+        id: 'mom-2',
+        title: 'Bending and Shear',
+        description: 'Beam analysis and diagrams',
+        type: 'article',
+        contentType: 'Beams',
+        fileUrl: 'https://www.engineeringtoolbox.com/beam-stress-deflection-d_1312.html',
+        size: '2.8 MB'
+      },
+      {
+        id: 'mom-3',
+        title: 'Torsion in Shafts',
+        description: 'Circular shaft analysis',
+        type: 'video',
+        contentType: 'Torsion',
+        fileUrl: 'https://www.youtube.com/watch?v=1YTKedLQOa0',
+        size: '480 MB'
+      },
+      {
+        id: 'mom-4',
+        title: 'Column Buckling',
+        description: "Euler's formula and critical loads",
+        type: 'article',
+        contentType: 'Buckling',
+        fileUrl: 'https://www.efunda.com/formulae/solid_mechanics/columns/intro.cfm',
+        size: '2.2 MB'
+      },
+      {
+        id: 'mom-5',
+        title: "Mohr's Circle",
+        description: 'Principal stresses and planes',
+        type: 'video',
+        contentType: 'Stress Analysis',
+        fileUrl: 'https://www.youtube.com/watch?v=lHN8d6xMsHM',
+        size: '420 MB'
+      },
+      {
+        id: 'mom-6',
+        title: 'Finite Element Analysis Intro',
+        description: 'FEA basics for structural analysis',
+        type: 'video',
+        contentType: 'FEA',
+        fileUrl: 'https://www.youtube.com/watch?v=GHjopp47vvQ',
+        size: '580 MB'
+      }
+    ]
+  },
+  {
+    id: 'thermodynamics',
+    title: 'Thermodynamics',
+    description: 'Heat transfer, thermodynamic cycles, and energy systems',
+    icon: '🌡️',
+    color: 'from-red-500 to-orange-500',
+    resources: [
+      {
+        id: 'thermo-1',
+        title: 'Thermodynamics Complete Course',
+        description: 'Laws of thermodynamics',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=VEfLz7K0zzo',
+        size: '780 MB'
+      },
+      {
+        id: 'thermo-2',
+        title: 'Heat Transfer Modes',
+        description: 'Conduction, convection, radiation',
+        type: 'article',
+        contentType: 'Heat Transfer',
+        fileUrl: 'https://www.engineeringtoolbox.com/heat-transfer-d_431.html',
+        size: '2.6 MB'
+      },
+      {
+        id: 'thermo-3',
+        title: 'Carnot and Otto Cycles',
+        description: 'Thermodynamic cycles explained',
+        type: 'video',
+        contentType: 'Cycles',
+        fileUrl: 'https://www.youtube.com/watch?v=p4xNo0L72Yg',
+        size: '520 MB'
+      },
+      {
+        id: 'thermo-4',
+        title: 'Refrigeration Cycles',
+        description: 'HVAC and cooling systems',
+        type: 'article',
+        contentType: 'Refrigeration',
+        fileUrl: 'https://www.swtc.edu/ag_power/air_conditioning/lecture/refrigeration_cycle.htm',
+        size: '2.4 MB'
+      },
+      {
+        id: 'thermo-5',
+        title: 'Steam Tables and Properties',
+        description: 'Water and steam thermodynamics',
+        type: 'video',
+        contentType: 'Steam',
+        fileUrl: 'https://www.youtube.com/watch?v=pKvo0XWZtjo',
+        size: '480 MB'
+      },
+      {
+        id: 'thermo-6',
+        title: 'Entropy and Second Law',
+        description: 'Understanding entropy',
+        type: 'article',
+        contentType: 'Entropy',
+        fileUrl: 'https://www.khanacademy.org/science/physics/thermodynamics/laws-of-thermodynamics/a/what-is-entropy',
+        size: '2.1 MB'
+      }
+    ]
+  },
+  {
+    id: 'fluid-mechanics',
+    title: 'Fluid Mechanics',
+    description: 'Fluid statics, dynamics, and hydraulic systems',
+    icon: '💧',
+    color: 'from-blue-400 to-cyan-500',
+    resources: [
+      {
+        id: 'fm-1',
+        title: 'Fluid Mechanics Fundamentals',
+        description: 'Properties and behavior of fluids',
+        type: 'video',
+        contentType: 'Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=PNqM1bF1Q6Q',
+        size: '680 MB'
+      },
+      {
+        id: 'fm-2',
+        title: "Bernoulli's Equation",
+        description: 'Energy in fluid flow',
+        type: 'article',
+        contentType: 'Bernoulli',
+        fileUrl: 'https://www.grc.nasa.gov/www/k-12/airplane/bern.html',
+        size: '2.4 MB'
+      },
+      {
+        id: 'fm-3',
+        title: 'Pipe Flow and Losses',
+        description: 'Friction and minor losses',
+        type: 'video',
+        contentType: 'Pipe Flow',
+        fileUrl: 'https://www.youtube.com/watch?v=dYofq5VEUzU',
+        size: '540 MB'
+      },
+      {
+        id: 'fm-4',
+        title: 'Dimensional Analysis',
+        description: 'Buckingham Pi theorem',
+        type: 'article',
+        contentType: 'Dimensional',
+        fileUrl: 'https://www.efunda.com/formulae/fluids/dimensional.cfm',
+        size: '2.2 MB'
+      },
+      {
+        id: 'fm-5',
+        title: 'CFD Introduction',
+        description: 'Computational fluid dynamics basics',
+        type: 'video',
+        contentType: 'CFD',
+        fileUrl: 'https://www.youtube.com/watch?v=x5_fgKDLLNo',
+        size: '620 MB'
+      },
+      {
+        id: 'fm-6',
+        title: 'Pumps and Turbines',
+        description: 'Hydraulic machinery',
+        type: 'video',
+        contentType: 'Machinery',
+        fileUrl: 'https://www.youtube.com/watch?v=HWt3hFJH5hU',
+        size: '520 MB'
+      }
+    ]
   }
 ];
