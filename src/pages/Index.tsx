@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import type { User } from "@supabase/supabase-js";
@@ -10,8 +10,9 @@ import { ArchitectureView } from "@/components/ArchitectureView";
 import { DomainGuidance } from "@/components/DomainGuidance";
 import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut, Download, Compass, FolderOpen } from "lucide-react";
+import { ArrowLeft, BookOpen, GraduationCap, Layout, LogOut, Download, Compass, FolderOpen, Search, X } from "lucide-react";
 import { toast } from "sonner";
 
 const Index = () => {
@@ -22,6 +23,23 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedVideo, setSelectedVideo] = useState<Resource | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Filter learning paths based on search query
+  const filteredPaths = useMemo(() => {
+    if (!searchQuery.trim()) return learningPaths;
+    
+    const query = searchQuery.toLowerCase().trim();
+    return learningPaths.filter(path => 
+      path.title.toLowerCase().includes(query) ||
+      path.description.toLowerCase().includes(query) ||
+      path.resources.some(resource => 
+        resource.title.toLowerCase().includes(query) ||
+        resource.description.toLowerCase().includes(query) ||
+        resource.contentType.toLowerCase().includes(query)
+      )
+    );
+  }, [searchQuery]);
 
   const handleVideoClick = (resource: Resource) => {
     setSelectedVideo(resource);
@@ -143,6 +161,36 @@ const Index = () => {
             </div>
 
             <TabsContent value="paths" className="mt-0">
+              {/* Search Bar */}
+              <div className="max-w-2xl mx-auto mb-8 sm:mb-10 lg:mb-14 px-2">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
+                  <div className="relative flex items-center">
+                    <Search className="absolute left-4 h-5 w-5 text-muted-foreground group-focus-within:text-primary transition-colors duration-300" />
+                    <Input
+                      type="text"
+                      placeholder="Search courses, topics, or technologies..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-12 pr-12 py-6 text-base sm:text-lg rounded-2xl border-2 border-border/50 bg-card/80 backdrop-blur-xl focus:border-primary/50 focus:ring-2 focus:ring-primary/20 shadow-lg transition-all duration-300 placeholder:text-muted-foreground/60"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery("")}
+                        className="absolute right-4 p-1 rounded-full hover:bg-muted transition-colors duration-200"
+                      >
+                        <X className="h-5 w-5 text-muted-foreground hover:text-foreground" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+                {searchQuery && (
+                  <p className="text-center text-sm text-muted-foreground mt-3">
+                    Found <span className="font-semibold text-primary">{filteredPaths.length}</span> course{filteredPaths.length !== 1 ? 's' : ''} matching "<span className="font-medium">{searchQuery}</span>"
+                  </p>
+                )}
+              </div>
+
               {/* Hero Section */}
               <div className="text-center mb-10 sm:mb-14 lg:mb-18 animate-fade-in px-2">
                 <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-primary/15 to-secondary/15 text-primary mb-5 sm:mb-7 shadow-lg border border-primary/20 backdrop-blur-sm">
@@ -158,20 +206,39 @@ const Index = () => {
               </div>
 
               {/* Learning Paths Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
-                {learningPaths.map((path, index) => (
-                  <div 
-                    key={path.id} 
-                    className="animate-fade-in-up opacity-0"
-                    style={{ animationDelay: `${index * 0.08}s`, animationFillMode: 'forwards' }}
-                  >
-                    <PathCard 
-                      path={path} 
-                      onSelect={setSelectedPath}
-                    />
+              {filteredPaths.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 max-w-7xl mx-auto">
+                  {filteredPaths.map((path, index) => (
+                    <div 
+                      key={path.id} 
+                      className="animate-fade-in-up opacity-0"
+                      style={{ animationDelay: `${index * 0.08}s`, animationFillMode: 'forwards' }}
+                    >
+                      <PathCard 
+                        path={path} 
+                        onSelect={setSelectedPath}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-16 px-4">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-muted/50 mb-6">
+                    <Search className="h-10 w-10 text-muted-foreground/50" />
                   </div>
-                ))}
-              </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">No courses found</h3>
+                  <p className="text-muted-foreground max-w-md mx-auto">
+                    We couldn't find any courses matching "<span className="font-medium">{searchQuery}</span>". Try different keywords or browse all courses.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => setSearchQuery("")}
+                    className="mt-6"
+                  >
+                    Clear Search
+                  </Button>
+                </div>
+              )}
             </TabsContent>
 
             <TabsContent value="architecture" className="mt-0">
