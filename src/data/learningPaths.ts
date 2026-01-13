@@ -3734,5 +3734,1285 @@ export const learningPaths: LearningPath[] = [
         size: '520 MB'
       }
     ]
+  },
+  // ===== PROGRAMMING LANGUAGES =====
+  {
+    id: 'java-programming',
+    title: 'Java Programming',
+    description: 'Master Java from basics to enterprise applications',
+    icon: '☕',
+    color: 'from-orange-600 to-red-600',
+    resources: [
+      {
+        id: 'java-1',
+        title: 'Java Fundamentals',
+        description: 'Variables, data types, operators, and control flow',
+        type: 'article',
+        contentType: 'Core Java',
+        fileUrl: 'https://docs.oracle.com/javase/tutorial/',
+        size: '3.5 MB'
+      },
+      {
+        id: 'java-2',
+        title: 'Object-Oriented Programming in Java',
+        description: 'Classes, objects, inheritance, and polymorphism',
+        type: 'video',
+        contentType: 'Core Java',
+        fileUrl: 'https://www.youtube.com/watch?v=GoXwIVyNvX0',
+        size: '580 MB'
+      },
+      {
+        id: 'java-3',
+        title: 'Java Collections Framework',
+        description: 'Lists, Sets, Maps, and Queues',
+        type: 'article',
+        contentType: 'Core Java',
+        fileUrl: 'https://www.baeldung.com/java-collections',
+        size: '2.8 MB'
+      },
+      {
+        id: 'java-4',
+        title: 'Exception Handling in Java',
+        description: 'Try-catch, throws, and custom exceptions',
+        type: 'video',
+        contentType: 'Core Java',
+        fileUrl: 'https://www.youtube.com/watch?v=1XAfapkBQjk',
+        size: '320 MB'
+      },
+      {
+        id: 'java-5',
+        title: 'Java Multithreading',
+        description: 'Threads, synchronization, and concurrency',
+        type: 'article',
+        contentType: 'Advanced Java',
+        fileUrl: 'https://www.baeldung.com/java-concurrency',
+        size: '3.2 MB'
+      },
+      {
+        id: 'java-6',
+        title: 'Java Streams and Lambda',
+        description: 'Functional programming in Java 8+',
+        type: 'video',
+        contentType: 'Advanced Java',
+        fileUrl: 'https://www.youtube.com/watch?v=Q93JsQ8vcwY',
+        size: '420 MB'
+      },
+      {
+        id: 'java-7',
+        title: 'Spring Boot Complete Course',
+        description: 'Build enterprise applications with Spring',
+        type: 'video',
+        contentType: 'Java Frameworks',
+        fileUrl: 'https://www.youtube.com/watch?v=9SGDpanrc8U',
+        size: '720 MB'
+      },
+      {
+        id: 'java-8',
+        title: 'Hibernate and JPA',
+        description: 'Object-relational mapping in Java',
+        type: 'article',
+        contentType: 'Java Frameworks',
+        fileUrl: 'https://hibernate.org/orm/documentation/',
+        size: '3.8 MB'
+      }
+    ]
+  },
+  {
+    id: 'cpp-programming',
+    title: 'C++ Programming',
+    description: 'Systems programming and high-performance applications',
+    icon: '⚡',
+    color: 'from-blue-700 to-indigo-700',
+    resources: [
+      {
+        id: 'cpp-1',
+        title: 'C++ Fundamentals',
+        description: 'Syntax, variables, and basic I/O',
+        type: 'article',
+        contentType: 'C++ Basics',
+        fileUrl: 'https://cplusplus.com/doc/tutorial/',
+        size: '3.1 MB'
+      },
+      {
+        id: 'cpp-2',
+        title: 'Pointers and Memory Management',
+        description: 'Understanding pointers, references, and dynamic memory',
+        type: 'video',
+        contentType: 'C++ Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=rtgwvkaYt1A',
+        size: '450 MB'
+      },
+      {
+        id: 'cpp-3',
+        title: 'Object-Oriented C++',
+        description: 'Classes, inheritance, and polymorphism',
+        type: 'video',
+        contentType: 'OOP in C++',
+        fileUrl: 'https://www.youtube.com/watch?v=wN0x9eZLix4',
+        size: '520 MB'
+      },
+      {
+        id: 'cpp-4',
+        title: 'STL - Standard Template Library',
+        description: 'Containers, algorithms, and iterators',
+        type: 'article',
+        contentType: 'C++ STL',
+        fileUrl: 'https://en.cppreference.com/w/cpp/container',
+        size: '4.2 MB'
+      },
+      {
+        id: 'cpp-5',
+        title: 'Modern C++ (C++11/14/17/20)',
+        description: 'Smart pointers, lambdas, and move semantics',
+        type: 'video',
+        contentType: 'Modern C++',
+        fileUrl: 'https://www.youtube.com/watch?v=18c3MTX0PK0',
+        size: '580 MB'
+      },
+      {
+        id: 'cpp-6',
+        title: 'C++ Multithreading',
+        description: 'Threads, mutexes, and async programming',
+        type: 'article',
+        contentType: 'Advanced C++',
+        fileUrl: 'https://en.cppreference.com/w/cpp/thread',
+        size: '2.9 MB'
+      },
+      {
+        id: 'cpp-7',
+        title: 'Data Structures in C++',
+        description: 'Implementing trees, graphs, and hash tables',
+        type: 'video',
+        contentType: 'Data Structures',
+        fileUrl: 'https://www.youtube.com/watch?v=B31LgI4Y4DQ',
+        size: '640 MB'
+      }
+    ]
+  },
+  {
+    id: 'python-programming',
+    title: 'Python Programming',
+    description: 'Versatile programming for web, data, and automation',
+    icon: '🐍',
+    color: 'from-green-600 to-yellow-500',
+    resources: [
+      {
+        id: 'py-1',
+        title: 'Python Basics',
+        description: 'Variables, data types, and operators',
+        type: 'article',
+        contentType: 'Python Fundamentals',
+        fileUrl: 'https://docs.python.org/3/tutorial/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'py-2',
+        title: 'Python Functions and Decorators',
+        description: 'Functions, closures, and decorators',
+        type: 'video',
+        contentType: 'Python Fundamentals',
+        fileUrl: 'https://www.youtube.com/watch?v=MjHpMCIvwsY',
+        size: '380 MB'
+      },
+      {
+        id: 'py-3',
+        title: 'Python OOP',
+        description: 'Classes, inheritance, and magic methods',
+        type: 'article',
+        contentType: 'OOP Python',
+        fileUrl: 'https://realpython.com/python3-object-oriented-programming/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'py-4',
+        title: 'Python File Handling',
+        description: 'Reading, writing, and processing files',
+        type: 'video',
+        contentType: 'Python I/O',
+        fileUrl: 'https://www.youtube.com/watch?v=Uh2ebFW8OYM',
+        size: '290 MB'
+      },
+      {
+        id: 'py-5',
+        title: 'Python Web Scraping',
+        description: 'BeautifulSoup and Scrapy',
+        type: 'article',
+        contentType: 'Web Scraping',
+        fileUrl: 'https://realpython.com/beautiful-soup-web-scraper-python/',
+        size: '2.5 MB'
+      },
+      {
+        id: 'py-6',
+        title: 'Django Web Framework',
+        description: 'Build web applications with Django',
+        type: 'video',
+        contentType: 'Python Web',
+        fileUrl: 'https://www.youtube.com/watch?v=F5mRW0jo-U4',
+        size: '680 MB'
+      },
+      {
+        id: 'py-7',
+        title: 'Flask Microframework',
+        description: 'Lightweight web development',
+        type: 'article',
+        contentType: 'Python Web',
+        fileUrl: 'https://flask.palletsprojects.com/en/latest/tutorial/',
+        size: '2.1 MB'
+      },
+      {
+        id: 'py-8',
+        title: 'Python Automation Scripts',
+        description: 'Automate tasks with Python',
+        type: 'video',
+        contentType: 'Automation',
+        fileUrl: 'https://www.youtube.com/watch?v=s8XjEuplx_U',
+        size: '420 MB'
+      }
+    ]
+  },
+  {
+    id: 'golang-programming',
+    title: 'Go (Golang) Programming',
+    description: 'Build scalable and efficient backend systems',
+    icon: '🐹',
+    color: 'from-cyan-500 to-blue-600',
+    resources: [
+      {
+        id: 'go-1',
+        title: 'Go Language Basics',
+        description: 'Variables, types, and control structures',
+        type: 'article',
+        contentType: 'Go Fundamentals',
+        fileUrl: 'https://go.dev/tour/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'go-2',
+        title: 'Go Functions and Packages',
+        description: 'Creating and organizing Go code',
+        type: 'video',
+        contentType: 'Go Fundamentals',
+        fileUrl: 'https://www.youtube.com/watch?v=YS4e4q9oBaU',
+        size: '420 MB'
+      },
+      {
+        id: 'go-3',
+        title: 'Goroutines and Channels',
+        description: 'Concurrent programming in Go',
+        type: 'article',
+        contentType: 'Concurrency',
+        fileUrl: 'https://go.dev/doc/effective_go#concurrency',
+        size: '3.1 MB'
+      },
+      {
+        id: 'go-4',
+        title: 'Go Web Development',
+        description: 'Building REST APIs with Go',
+        type: 'video',
+        contentType: 'Go Web',
+        fileUrl: 'https://www.youtube.com/watch?v=bj77B59nkTQ',
+        size: '580 MB'
+      },
+      {
+        id: 'go-5',
+        title: 'Go Testing',
+        description: 'Unit testing and benchmarking',
+        type: 'article',
+        contentType: 'Testing',
+        fileUrl: 'https://go.dev/doc/tutorial/add-a-test',
+        size: '2.2 MB'
+      },
+      {
+        id: 'go-6',
+        title: 'Go Microservices',
+        description: 'Building microservices architecture',
+        type: 'video',
+        contentType: 'Microservices',
+        fileUrl: 'https://www.youtube.com/watch?v=VzBGi_n65iU',
+        size: '620 MB'
+      }
+    ]
+  },
+  {
+    id: 'rust-programming',
+    title: 'Rust Programming',
+    description: 'Memory-safe systems programming language',
+    icon: '🦀',
+    color: 'from-orange-700 to-red-700',
+    resources: [
+      {
+        id: 'rust-1',
+        title: 'Rust Getting Started',
+        description: 'Installation, Cargo, and first program',
+        type: 'article',
+        contentType: 'Rust Basics',
+        fileUrl: 'https://doc.rust-lang.org/book/',
+        size: '4.2 MB'
+      },
+      {
+        id: 'rust-2',
+        title: 'Ownership and Borrowing',
+        description: 'Rust memory safety concepts',
+        type: 'video',
+        contentType: 'Rust Core',
+        fileUrl: 'https://www.youtube.com/watch?v=VFIOSWy93H0',
+        size: '480 MB'
+      },
+      {
+        id: 'rust-3',
+        title: 'Rust Structs and Enums',
+        description: 'Custom data types in Rust',
+        type: 'article',
+        contentType: 'Rust Core',
+        fileUrl: 'https://doc.rust-lang.org/book/ch05-00-structs.html',
+        size: '2.6 MB'
+      },
+      {
+        id: 'rust-4',
+        title: 'Error Handling in Rust',
+        description: 'Result, Option, and panic',
+        type: 'video',
+        contentType: 'Error Handling',
+        fileUrl: 'https://www.youtube.com/watch?v=wM6o70NAWUI',
+        size: '350 MB'
+      },
+      {
+        id: 'rust-5',
+        title: 'Rust Concurrency',
+        description: 'Threads and async programming',
+        type: 'article',
+        contentType: 'Concurrency',
+        fileUrl: 'https://doc.rust-lang.org/book/ch16-00-concurrency.html',
+        size: '3.1 MB'
+      },
+      {
+        id: 'rust-6',
+        title: 'Building CLI Apps in Rust',
+        description: 'Command-line applications',
+        type: 'video',
+        contentType: 'Rust Projects',
+        fileUrl: 'https://www.youtube.com/watch?v=Hox9B16xnYc',
+        size: '410 MB'
+      }
+    ]
+  },
+  // ===== DATABASE TECHNOLOGIES =====
+  {
+    id: 'sql-databases',
+    title: 'SQL & Relational Databases',
+    description: 'Master SQL and relational database management',
+    icon: '🗄️',
+    color: 'from-blue-600 to-purple-600',
+    resources: [
+      {
+        id: 'sql-1',
+        title: 'SQL Fundamentals',
+        description: 'SELECT, INSERT, UPDATE, DELETE queries',
+        type: 'article',
+        contentType: 'SQL Basics',
+        fileUrl: 'https://www.w3schools.com/sql/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'sql-2',
+        title: 'SQL Joins Mastery',
+        description: 'INNER, LEFT, RIGHT, and FULL joins',
+        type: 'video',
+        contentType: 'SQL Queries',
+        fileUrl: 'https://www.youtube.com/watch?v=9yeOJ0ZMUYw',
+        size: '380 MB'
+      },
+      {
+        id: 'sql-3',
+        title: 'Advanced SQL Queries',
+        description: 'Subqueries, CTEs, and window functions',
+        type: 'article',
+        contentType: 'Advanced SQL',
+        fileUrl: 'https://mode.com/sql-tutorial/sql-window-functions/',
+        size: '3.2 MB'
+      },
+      {
+        id: 'sql-4',
+        title: 'Database Design and Normalization',
+        description: '1NF, 2NF, 3NF, and BCNF',
+        type: 'video',
+        contentType: 'Database Design',
+        fileUrl: 'https://www.youtube.com/watch?v=GFQaEYEc8_8',
+        size: '420 MB'
+      },
+      {
+        id: 'sql-5',
+        title: 'PostgreSQL Complete Guide',
+        description: 'Advanced PostgreSQL features',
+        type: 'article',
+        contentType: 'PostgreSQL',
+        fileUrl: 'https://www.postgresql.org/docs/current/tutorial.html',
+        size: '4.5 MB'
+      },
+      {
+        id: 'sql-6',
+        title: 'MySQL Administration',
+        description: 'MySQL setup and management',
+        type: 'video',
+        contentType: 'MySQL',
+        fileUrl: 'https://www.youtube.com/watch?v=7S_tz1z_5bA',
+        size: '580 MB'
+      },
+      {
+        id: 'sql-7',
+        title: 'Database Indexing and Optimization',
+        description: 'Performance tuning and indexing strategies',
+        type: 'article',
+        contentType: 'Optimization',
+        fileUrl: 'https://use-the-index-luke.com/',
+        size: '3.8 MB'
+      }
+    ]
+  },
+  {
+    id: 'nosql-databases',
+    title: 'NoSQL Databases',
+    description: 'Document, key-value, and graph databases',
+    icon: '📦',
+    color: 'from-green-500 to-teal-600',
+    resources: [
+      {
+        id: 'nosql-1',
+        title: 'NoSQL Database Types',
+        description: 'Document, key-value, column, and graph',
+        type: 'article',
+        contentType: 'NoSQL Basics',
+        fileUrl: 'https://www.mongodb.com/nosql-explained',
+        size: '2.5 MB'
+      },
+      {
+        id: 'nosql-2',
+        title: 'MongoDB Complete Course',
+        description: 'Document database fundamentals',
+        type: 'video',
+        contentType: 'MongoDB',
+        fileUrl: 'https://www.youtube.com/watch?v=ofme2o29ngU',
+        size: '620 MB'
+      },
+      {
+        id: 'nosql-3',
+        title: 'MongoDB Aggregation Pipeline',
+        description: 'Data processing and transformation',
+        type: 'article',
+        contentType: 'MongoDB',
+        fileUrl: 'https://www.mongodb.com/docs/manual/aggregation/',
+        size: '3.4 MB'
+      },
+      {
+        id: 'nosql-4',
+        title: 'Redis In-Depth',
+        description: 'Caching and data structures',
+        type: 'video',
+        contentType: 'Redis',
+        fileUrl: 'https://www.youtube.com/watch?v=jgpVdJB2sKQ',
+        size: '480 MB'
+      },
+      {
+        id: 'nosql-5',
+        title: 'Cassandra Distributed Database',
+        description: 'Wide-column store for big data',
+        type: 'article',
+        contentType: 'Cassandra',
+        fileUrl: 'https://cassandra.apache.org/doc/latest/cassandra/getting_started/',
+        size: '3.8 MB'
+      },
+      {
+        id: 'nosql-6',
+        title: 'Neo4j Graph Database',
+        description: 'Graph databases and Cypher queries',
+        type: 'video',
+        contentType: 'Graph DB',
+        fileUrl: 'https://www.youtube.com/watch?v=8jNPelugC2s',
+        size: '520 MB'
+      }
+    ]
+  },
+  // ===== FRONTEND TECHNOLOGIES =====
+  {
+    id: 'angular-development',
+    title: 'Angular Development',
+    description: 'Build enterprise-grade web applications with Angular',
+    icon: '🅰️',
+    color: 'from-red-600 to-pink-600',
+    resources: [
+      {
+        id: 'ang-1',
+        title: 'Angular Fundamentals',
+        description: 'Components, modules, and templates',
+        type: 'article',
+        contentType: 'Angular Basics',
+        fileUrl: 'https://angular.io/start',
+        size: '3.5 MB'
+      },
+      {
+        id: 'ang-2',
+        title: 'Angular Components Deep Dive',
+        description: 'Component lifecycle and communication',
+        type: 'video',
+        contentType: 'Components',
+        fileUrl: 'https://www.youtube.com/watch?v=3dHNOWTI7H8',
+        size: '480 MB'
+      },
+      {
+        id: 'ang-3',
+        title: 'Angular Services and DI',
+        description: 'Dependency injection patterns',
+        type: 'article',
+        contentType: 'Services',
+        fileUrl: 'https://angular.io/guide/dependency-injection',
+        size: '2.8 MB'
+      },
+      {
+        id: 'ang-4',
+        title: 'Angular Routing',
+        description: 'Navigation and route guards',
+        type: 'video',
+        contentType: 'Routing',
+        fileUrl: 'https://www.youtube.com/watch?v=Np3ULAMqwNo',
+        size: '410 MB'
+      },
+      {
+        id: 'ang-5',
+        title: 'Angular Forms',
+        description: 'Template-driven and reactive forms',
+        type: 'article',
+        contentType: 'Forms',
+        fileUrl: 'https://angular.io/guide/forms-overview',
+        size: '3.1 MB'
+      },
+      {
+        id: 'ang-6',
+        title: 'NgRx State Management',
+        description: 'Redux pattern in Angular',
+        type: 'video',
+        contentType: 'State Management',
+        fileUrl: 'https://www.youtube.com/watch?v=brKHt7U8S5E',
+        size: '550 MB'
+      },
+      {
+        id: 'ang-7',
+        title: 'Angular Material UI',
+        description: 'Material Design components',
+        type: 'article',
+        contentType: 'UI Library',
+        fileUrl: 'https://material.angular.io/guide/getting-started',
+        size: '2.4 MB'
+      }
+    ]
+  },
+  {
+    id: 'svelte-development',
+    title: 'Svelte & SvelteKit',
+    description: 'Compile-time reactive framework',
+    icon: '🔥',
+    color: 'from-orange-500 to-red-500',
+    resources: [
+      {
+        id: 'svelte-1',
+        title: 'Svelte Basics',
+        description: 'Reactivity and component syntax',
+        type: 'article',
+        contentType: 'Svelte Fundamentals',
+        fileUrl: 'https://svelte.dev/tutorial/basics',
+        size: '2.6 MB'
+      },
+      {
+        id: 'svelte-2',
+        title: 'Svelte Complete Course',
+        description: 'Build apps with Svelte',
+        type: 'video',
+        contentType: 'Svelte Fundamentals',
+        fileUrl: 'https://www.youtube.com/watch?v=3TVy6GdtNuQ',
+        size: '520 MB'
+      },
+      {
+        id: 'svelte-3',
+        title: 'Svelte Stores',
+        description: 'State management in Svelte',
+        type: 'article',
+        contentType: 'State Management',
+        fileUrl: 'https://svelte.dev/docs/svelte-store',
+        size: '2.1 MB'
+      },
+      {
+        id: 'svelte-4',
+        title: 'SvelteKit Full Stack',
+        description: 'Server-side rendering with SvelteKit',
+        type: 'video',
+        contentType: 'SvelteKit',
+        fileUrl: 'https://www.youtube.com/watch?v=MoGkX4RvZ38',
+        size: '580 MB'
+      },
+      {
+        id: 'svelte-5',
+        title: 'Svelte Animations',
+        description: 'Transitions and motion',
+        type: 'article',
+        contentType: 'Animations',
+        fileUrl: 'https://svelte.dev/docs/svelte-transition',
+        size: '1.9 MB'
+      }
+    ]
+  },
+  // ===== BACKEND TECHNOLOGIES =====
+  {
+    id: 'nodejs-development',
+    title: 'Node.js Development',
+    description: 'Server-side JavaScript runtime',
+    icon: '💚',
+    color: 'from-green-600 to-emerald-600',
+    resources: [
+      {
+        id: 'node-1',
+        title: 'Node.js Fundamentals',
+        description: 'Event loop, modules, and npm',
+        type: 'article',
+        contentType: 'Node Basics',
+        fileUrl: 'https://nodejs.org/en/learn/getting-started/introduction-to-nodejs',
+        size: '3.2 MB'
+      },
+      {
+        id: 'node-2',
+        title: 'Node.js Complete Course',
+        description: 'Build backend with Node.js',
+        type: 'video',
+        contentType: 'Node Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=Oe421EPjeBE',
+        size: '680 MB'
+      },
+      {
+        id: 'node-3',
+        title: 'Express.js Framework',
+        description: 'Building REST APIs',
+        type: 'article',
+        contentType: 'Express',
+        fileUrl: 'https://expressjs.com/en/starter/installing.html',
+        size: '2.5 MB'
+      },
+      {
+        id: 'node-4',
+        title: 'Express Middleware',
+        description: 'Request processing pipeline',
+        type: 'video',
+        contentType: 'Express',
+        fileUrl: 'https://www.youtube.com/watch?v=lY6icfhap2o',
+        size: '380 MB'
+      },
+      {
+        id: 'node-5',
+        title: 'Node.js Authentication',
+        description: 'JWT and Passport.js',
+        type: 'article',
+        contentType: 'Authentication',
+        fileUrl: 'https://www.passportjs.org/docs/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'node-6',
+        title: 'Node.js with TypeScript',
+        description: 'Type-safe Node development',
+        type: 'video',
+        contentType: 'TypeScript',
+        fileUrl: 'https://www.youtube.com/watch?v=zRo2tvQpus8',
+        size: '450 MB'
+      },
+      {
+        id: 'node-7',
+        title: 'NestJS Framework',
+        description: 'Enterprise Node.js framework',
+        type: 'article',
+        contentType: 'NestJS',
+        fileUrl: 'https://docs.nestjs.com/',
+        size: '4.1 MB'
+      }
+    ]
+  },
+  {
+    id: 'dotnet-development',
+    title: '.NET Development',
+    description: 'Build applications with C# and .NET',
+    icon: '🔷',
+    color: 'from-purple-600 to-blue-700',
+    resources: [
+      {
+        id: 'dotnet-1',
+        title: 'C# Programming Basics',
+        description: 'C# syntax and fundamentals',
+        type: 'article',
+        contentType: 'C# Basics',
+        fileUrl: 'https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/',
+        size: '3.5 MB'
+      },
+      {
+        id: 'dotnet-2',
+        title: 'C# Complete Course',
+        description: 'Master C# programming',
+        type: 'video',
+        contentType: 'C# Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=GhQdlIFylQ8',
+        size: '720 MB'
+      },
+      {
+        id: 'dotnet-3',
+        title: 'ASP.NET Core Web API',
+        description: 'Building RESTful services',
+        type: 'article',
+        contentType: 'ASP.NET',
+        fileUrl: 'https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api',
+        size: '3.8 MB'
+      },
+      {
+        id: 'dotnet-4',
+        title: 'Entity Framework Core',
+        description: 'ORM for .NET',
+        type: 'video',
+        contentType: 'Entity Framework',
+        fileUrl: 'https://www.youtube.com/watch?v=SryQxUeChMc',
+        size: '480 MB'
+      },
+      {
+        id: 'dotnet-5',
+        title: 'Blazor WebAssembly',
+        description: 'Build web UIs with C#',
+        type: 'article',
+        contentType: 'Blazor',
+        fileUrl: 'https://learn.microsoft.com/en-us/aspnet/core/blazor/',
+        size: '4.2 MB'
+      },
+      {
+        id: 'dotnet-6',
+        title: '.NET MAUI Mobile Development',
+        description: 'Cross-platform mobile apps',
+        type: 'video',
+        contentType: 'MAUI',
+        fileUrl: 'https://www.youtube.com/watch?v=DuNLR_NJv8U',
+        size: '580 MB'
+      }
+    ]
+  },
+  // ===== TESTING & QUALITY =====
+  {
+    id: 'software-testing',
+    title: 'Software Testing',
+    description: 'QA, automation, and testing methodologies',
+    icon: '🧪',
+    color: 'from-teal-500 to-cyan-600',
+    resources: [
+      {
+        id: 'test-1',
+        title: 'Testing Fundamentals',
+        description: 'Types of testing and methodologies',
+        type: 'article',
+        contentType: 'Testing Basics',
+        fileUrl: 'https://www.guru99.com/software-testing-introduction-importance.html',
+        size: '2.8 MB'
+      },
+      {
+        id: 'test-2',
+        title: 'Unit Testing Best Practices',
+        description: 'Writing effective unit tests',
+        type: 'video',
+        contentType: 'Unit Testing',
+        fileUrl: 'https://www.youtube.com/watch?v=Eu35xM76kKY',
+        size: '420 MB'
+      },
+      {
+        id: 'test-3',
+        title: 'Jest Testing Framework',
+        description: 'JavaScript testing with Jest',
+        type: 'article',
+        contentType: 'Jest',
+        fileUrl: 'https://jestjs.io/docs/getting-started',
+        size: '3.1 MB'
+      },
+      {
+        id: 'test-4',
+        title: 'Cypress E2E Testing',
+        description: 'End-to-end testing for web apps',
+        type: 'video',
+        contentType: 'E2E Testing',
+        fileUrl: 'https://www.youtube.com/watch?v=BQqzfHQkREo',
+        size: '520 MB'
+      },
+      {
+        id: 'test-5',
+        title: 'Selenium WebDriver',
+        description: 'Browser automation testing',
+        type: 'article',
+        contentType: 'Selenium',
+        fileUrl: 'https://www.selenium.dev/documentation/',
+        size: '4.2 MB'
+      },
+      {
+        id: 'test-6',
+        title: 'API Testing with Postman',
+        description: 'REST API testing strategies',
+        type: 'video',
+        contentType: 'API Testing',
+        fileUrl: 'https://www.youtube.com/watch?v=VywxIQ2ZXw4',
+        size: '380 MB'
+      },
+      {
+        id: 'test-7',
+        title: 'Performance Testing',
+        description: 'Load testing with JMeter',
+        type: 'article',
+        contentType: 'Performance',
+        fileUrl: 'https://jmeter.apache.org/usermanual/',
+        size: '3.5 MB'
+      }
+    ]
+  },
+  // ===== SYSTEM DESIGN =====
+  {
+    id: 'system-design',
+    title: 'System Design',
+    description: 'Design scalable and distributed systems',
+    icon: '🏛️',
+    color: 'from-indigo-600 to-purple-700',
+    resources: [
+      {
+        id: 'sysdes-1',
+        title: 'System Design Fundamentals',
+        description: 'Scalability, reliability, and availability',
+        type: 'article',
+        contentType: 'Basics',
+        fileUrl: 'https://github.com/donnemartin/system-design-primer',
+        size: '5.2 MB'
+      },
+      {
+        id: 'sysdes-2',
+        title: 'System Design Interview',
+        description: 'Common interview problems',
+        type: 'video',
+        contentType: 'Interview',
+        fileUrl: 'https://www.youtube.com/watch?v=UzLMhqg3_Wc',
+        size: '580 MB'
+      },
+      {
+        id: 'sysdes-3',
+        title: 'Microservices Architecture',
+        description: 'Designing microservices',
+        type: 'article',
+        contentType: 'Microservices',
+        fileUrl: 'https://microservices.io/patterns/index.html',
+        size: '4.1 MB'
+      },
+      {
+        id: 'sysdes-4',
+        title: 'Database Sharding',
+        description: 'Horizontal scaling strategies',
+        type: 'video',
+        contentType: 'Databases',
+        fileUrl: 'https://www.youtube.com/watch?v=5faMjKuB9bc',
+        size: '420 MB'
+      },
+      {
+        id: 'sysdes-5',
+        title: 'Load Balancing',
+        description: 'Distributing traffic across servers',
+        type: 'article',
+        contentType: 'Infrastructure',
+        fileUrl: 'https://www.nginx.com/resources/glossary/load-balancing/',
+        size: '2.8 MB'
+      },
+      {
+        id: 'sysdes-6',
+        title: 'Caching Strategies',
+        description: 'CDN, Redis, and application caching',
+        type: 'video',
+        contentType: 'Caching',
+        fileUrl: 'https://www.youtube.com/watch?v=U3RkDLtS7uY',
+        size: '380 MB'
+      },
+      {
+        id: 'sysdes-7',
+        title: 'Message Queues',
+        description: 'Kafka, RabbitMQ, and async processing',
+        type: 'article',
+        contentType: 'Messaging',
+        fileUrl: 'https://kafka.apache.org/documentation/',
+        size: '4.5 MB'
+      },
+      {
+        id: 'sysdes-8',
+        title: 'Design URL Shortener',
+        description: 'System design case study',
+        type: 'video',
+        contentType: 'Case Study',
+        fileUrl: 'https://www.youtube.com/watch?v=fMZMm_0ZhK4',
+        size: '320 MB'
+      }
+    ]
+  },
+  // ===== API DEVELOPMENT =====
+  {
+    id: 'api-development',
+    title: 'API Development',
+    description: 'REST, GraphQL, and API design patterns',
+    icon: '🔌',
+    color: 'from-pink-500 to-rose-600',
+    resources: [
+      {
+        id: 'api-1',
+        title: 'REST API Design',
+        description: 'RESTful principles and best practices',
+        type: 'article',
+        contentType: 'REST',
+        fileUrl: 'https://restfulapi.net/',
+        size: '2.9 MB'
+      },
+      {
+        id: 'api-2',
+        title: 'Building REST APIs',
+        description: 'Practical REST API development',
+        type: 'video',
+        contentType: 'REST',
+        fileUrl: 'https://www.youtube.com/watch?v=pKd0Rpw7O48',
+        size: '480 MB'
+      },
+      {
+        id: 'api-3',
+        title: 'GraphQL Fundamentals',
+        description: 'Query language for APIs',
+        type: 'article',
+        contentType: 'GraphQL',
+        fileUrl: 'https://graphql.org/learn/',
+        size: '3.4 MB'
+      },
+      {
+        id: 'api-4',
+        title: 'GraphQL Complete Course',
+        description: 'Build GraphQL APIs',
+        type: 'video',
+        contentType: 'GraphQL',
+        fileUrl: 'https://www.youtube.com/watch?v=ed8SzALpx1Q',
+        size: '620 MB'
+      },
+      {
+        id: 'api-5',
+        title: 'API Authentication',
+        description: 'OAuth, JWT, and API keys',
+        type: 'article',
+        contentType: 'Security',
+        fileUrl: 'https://auth0.com/docs/get-started/authentication-and-authorization-flow',
+        size: '3.1 MB'
+      },
+      {
+        id: 'api-6',
+        title: 'API Documentation with Swagger',
+        description: 'OpenAPI specification',
+        type: 'video',
+        contentType: 'Documentation',
+        fileUrl: 'https://www.youtube.com/watch?v=7MS1Z_1c5CU',
+        size: '340 MB'
+      },
+      {
+        id: 'api-7',
+        title: 'gRPC and Protocol Buffers',
+        description: 'High-performance RPC framework',
+        type: 'article',
+        contentType: 'gRPC',
+        fileUrl: 'https://grpc.io/docs/what-is-grpc/introduction/',
+        size: '2.7 MB'
+      }
+    ]
+  },
+  // ===== COMPETITIVE PROGRAMMING =====
+  {
+    id: 'competitive-programming',
+    title: 'Competitive Programming',
+    description: 'Algorithms, problem-solving, and coding contests',
+    icon: '🏆',
+    color: 'from-yellow-500 to-amber-600',
+    resources: [
+      {
+        id: 'cp-1',
+        title: 'Getting Started with CP',
+        description: 'Platforms and practice strategies',
+        type: 'article',
+        contentType: 'Introduction',
+        fileUrl: 'https://codeforces.com/blog/entry/99660',
+        size: '2.2 MB'
+      },
+      {
+        id: 'cp-2',
+        title: 'Time Complexity Analysis',
+        description: 'Big O notation mastery',
+        type: 'video',
+        contentType: 'Fundamentals',
+        fileUrl: 'https://www.youtube.com/watch?v=BgLTDT03QtU',
+        size: '380 MB'
+      },
+      {
+        id: 'cp-3',
+        title: 'Sorting Algorithms',
+        description: 'Quick sort, merge sort, and more',
+        type: 'article',
+        contentType: 'Algorithms',
+        fileUrl: 'https://www.geeksforgeeks.org/sorting-algorithms/',
+        size: '3.4 MB'
+      },
+      {
+        id: 'cp-4',
+        title: 'Graph Algorithms',
+        description: 'BFS, DFS, Dijkstra, and MST',
+        type: 'video',
+        contentType: 'Graph Theory',
+        fileUrl: 'https://www.youtube.com/watch?v=tWVWeAqZ0WU',
+        size: '520 MB'
+      },
+      {
+        id: 'cp-5',
+        title: 'Dynamic Programming',
+        description: 'DP patterns and techniques',
+        type: 'article',
+        contentType: 'DP',
+        fileUrl: 'https://cp-algorithms.com/dynamic_programming/intro-to-dp.html',
+        size: '4.1 MB'
+      },
+      {
+        id: 'cp-6',
+        title: 'Advanced DP Techniques',
+        description: 'Bitmask DP, digit DP, and tree DP',
+        type: 'video',
+        contentType: 'Advanced DP',
+        fileUrl: 'https://www.youtube.com/watch?v=FAQxdm0bTaw',
+        size: '480 MB'
+      },
+      {
+        id: 'cp-7',
+        title: 'Segment Trees',
+        description: 'Range queries and updates',
+        type: 'article',
+        contentType: 'Data Structures',
+        fileUrl: 'https://cp-algorithms.com/data_structures/segment_tree.html',
+        size: '3.2 MB'
+      },
+      {
+        id: 'cp-8',
+        title: 'Number Theory',
+        description: 'Primes, GCD, and modular arithmetic',
+        type: 'video',
+        contentType: 'Mathematics',
+        fileUrl: 'https://www.youtube.com/watch?v=Xm4FICQ5bZU',
+        size: '420 MB'
+      }
+    ]
+  },
+  // ===== LINUX & COMMAND LINE =====
+  {
+    id: 'linux-administration',
+    title: 'Linux & Command Line',
+    description: 'Master Linux and shell scripting',
+    icon: '🐧',
+    color: 'from-gray-700 to-slate-800',
+    resources: [
+      {
+        id: 'linux-1',
+        title: 'Linux Basics',
+        description: 'File system, commands, and navigation',
+        type: 'article',
+        contentType: 'Linux Fundamentals',
+        fileUrl: 'https://linuxjourney.com/',
+        size: '3.1 MB'
+      },
+      {
+        id: 'linux-2',
+        title: 'Linux Command Line',
+        description: 'Essential terminal commands',
+        type: 'video',
+        contentType: 'Command Line',
+        fileUrl: 'https://www.youtube.com/watch?v=ZtqBQ68cfJc',
+        size: '520 MB'
+      },
+      {
+        id: 'linux-3',
+        title: 'Bash Scripting',
+        description: 'Automate with shell scripts',
+        type: 'article',
+        contentType: 'Shell Scripting',
+        fileUrl: 'https://www.gnu.org/software/bash/manual/bash.html',
+        size: '4.2 MB'
+      },
+      {
+        id: 'linux-4',
+        title: 'Advanced Bash',
+        description: 'Variables, loops, and functions',
+        type: 'video',
+        contentType: 'Shell Scripting',
+        fileUrl: 'https://www.youtube.com/watch?v=tK9Oc6AEnR4',
+        size: '450 MB'
+      },
+      {
+        id: 'linux-5',
+        title: 'Linux System Administration',
+        description: 'Users, permissions, and services',
+        type: 'article',
+        contentType: 'SysAdmin',
+        fileUrl: 'https://ubuntu.com/server/docs',
+        size: '3.8 MB'
+      },
+      {
+        id: 'linux-6',
+        title: 'Linux Networking',
+        description: 'Network configuration and troubleshooting',
+        type: 'video',
+        contentType: 'Networking',
+        fileUrl: 'https://www.youtube.com/watch?v=_uQrJ0TkZlc',
+        size: '480 MB'
+      },
+      {
+        id: 'linux-7',
+        title: 'Vim Editor Mastery',
+        description: 'Efficient text editing',
+        type: 'article',
+        contentType: 'Tools',
+        fileUrl: 'https://www.openvim.com/',
+        size: '1.8 MB'
+      }
+    ]
+  },
+  // ===== INTERVIEW PREPARATION =====
+  {
+    id: 'interview-preparation',
+    title: 'Interview Preparation',
+    description: 'Technical interviews and career preparation',
+    icon: '💼',
+    color: 'from-emerald-500 to-green-600',
+    resources: [
+      {
+        id: 'int-1',
+        title: 'Coding Interview Patterns',
+        description: 'Common problem-solving patterns',
+        type: 'article',
+        contentType: 'Coding',
+        fileUrl: 'https://www.educative.io/courses/grokking-the-coding-interview',
+        size: '4.5 MB'
+      },
+      {
+        id: 'int-2',
+        title: 'Data Structures for Interviews',
+        description: 'Essential DS concepts',
+        type: 'video',
+        contentType: 'Data Structures',
+        fileUrl: 'https://www.youtube.com/watch?v=RBSGKlAvoiM',
+        size: '680 MB'
+      },
+      {
+        id: 'int-3',
+        title: 'Behavioral Interview Prep',
+        description: 'STAR method and common questions',
+        type: 'article',
+        contentType: 'Behavioral',
+        fileUrl: 'https://www.themuse.com/advice/star-interview-method',
+        size: '2.1 MB'
+      },
+      {
+        id: 'int-4',
+        title: 'System Design Interviews',
+        description: 'Design large-scale systems',
+        type: 'video',
+        contentType: 'System Design',
+        fileUrl: 'https://www.youtube.com/watch?v=xpDnVSmNFX0',
+        size: '520 MB'
+      },
+      {
+        id: 'int-5',
+        title: 'Resume Building',
+        description: 'Create an effective tech resume',
+        type: 'article',
+        contentType: 'Career',
+        fileUrl: 'https://www.techinterviewhandbook.org/resume/',
+        size: '1.8 MB'
+      },
+      {
+        id: 'int-6',
+        title: 'Mock Interviews',
+        description: 'Practice with real scenarios',
+        type: 'video',
+        contentType: 'Practice',
+        fileUrl: 'https://www.youtube.com/watch?v=1qw5ITr3k9E',
+        size: '480 MB'
+      },
+      {
+        id: 'int-7',
+        title: 'Salary Negotiation',
+        description: 'Negotiate your compensation',
+        type: 'article',
+        contentType: 'Career',
+        fileUrl: 'https://www.levels.fyi/blog/how-to-negotiate-salary.html',
+        size: '1.5 MB'
+      }
+    ]
+  },
+  // ===== VERSION CONTROL =====
+  {
+    id: 'git-version-control',
+    title: 'Git & Version Control',
+    description: 'Master Git workflows and collaboration',
+    icon: '📂',
+    color: 'from-orange-600 to-amber-600',
+    resources: [
+      {
+        id: 'git-1',
+        title: 'Git Fundamentals',
+        description: 'Init, add, commit, and push',
+        type: 'article',
+        contentType: 'Git Basics',
+        fileUrl: 'https://git-scm.com/book/en/v2',
+        size: '3.2 MB'
+      },
+      {
+        id: 'git-2',
+        title: 'Git Complete Course',
+        description: 'Learn Git from scratch',
+        type: 'video',
+        contentType: 'Git Basics',
+        fileUrl: 'https://www.youtube.com/watch?v=RGOj5yH7evk',
+        size: '480 MB'
+      },
+      {
+        id: 'git-3',
+        title: 'Git Branching',
+        description: 'Branches and merging strategies',
+        type: 'article',
+        contentType: 'Branching',
+        fileUrl: 'https://learngitbranching.js.org/',
+        size: '2.1 MB'
+      },
+      {
+        id: 'git-4',
+        title: 'Git Rebase vs Merge',
+        description: 'When to rebase and when to merge',
+        type: 'video',
+        contentType: 'Advanced',
+        fileUrl: 'https://www.youtube.com/watch?v=CRlGDDprdOQ',
+        size: '320 MB'
+      },
+      {
+        id: 'git-5',
+        title: 'GitHub Collaboration',
+        description: 'Pull requests and code reviews',
+        type: 'article',
+        contentType: 'GitHub',
+        fileUrl: 'https://docs.github.com/en/pull-requests',
+        size: '2.8 MB'
+      },
+      {
+        id: 'git-6',
+        title: 'Git Workflow Strategies',
+        description: 'GitFlow, GitHub Flow, and trunk-based',
+        type: 'video',
+        contentType: 'Workflows',
+        fileUrl: 'https://www.youtube.com/watch?v=aJnFGMclhU8',
+        size: '380 MB'
+      }
+    ]
   }
 ];
